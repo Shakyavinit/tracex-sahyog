@@ -162,7 +162,7 @@ flowchart TD
 - **Frontend**: Lightweight vanilla JavaScript, CSS custom properties, canvas-based graph engine (Zero external bundle dependencies).
 - **Backend API**: Python 3.11, FastAPI, Uvicorn, NetworkX (Graph Algorithms).
 - **Inference Layer**: Multi-provider LLM integration (Google Gemini / Groq LPU) with rule-based deterministic fallback.
-- **Client-Side Engine**: Autonomous offline engine (`TraceXClientEngine`) ensuring 24/7 demo uptime on static hosting (GitHub Pages).
+- **Client-Side Engine**: Automated (Prototype) offline engine (`TraceXClientEngine`) ensuring 24/7 demo uptime on static hosting (GitHub Pages).
 
 ---
 
