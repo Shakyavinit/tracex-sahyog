@@ -43,3 +43,4 @@ data/sahyog.db
 extracted_theme/
 reports/notice_*.txt
 
+tools/cloudflared
