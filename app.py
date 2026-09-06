@@ -14,7 +14,7 @@ import os
 from datetime import datetime
 from typing import Optional, Any, Dict
 from fastapi import FastAPI, HTTPException, Response
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -523,7 +523,28 @@ def serve_robo_dashboard():
     if os.path.exists(html_path):
         with open(html_path, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
-    return HTMLResponse("<h1>Robo Dashboard loading...</h1>")
+@app.get("/download/{filename}")
+def download_file(filename: str):
+    """Directly download forensic guides, manuals, and reports."""
+    allowed = {
+        "SAHYOG_QA_QUICK_GUIDE_EN.pdf",
+        "SAHYOG_QA_QUICK_GUIDE.pdf",
+        "TraceX_System_Workflow_Manual.pdf",
+        "SAHYOG_QA_QUICK_GUIDE_EN.md",
+        "SAHYOG_QA_QUICK_GUIDE.md",
+        "WORKFLOW_MANUAL.md",
+    }
+    if filename in allowed:
+        file_path = os.path.join(BASE_DIR, filename)
+        if os.path.exists(file_path):
+            media_type = "application/pdf" if filename.endswith(".pdf") else "text/markdown"
+            return FileResponse(
+                file_path,
+                filename=filename,
+                media_type=media_type,
+                headers={"Content-Disposition": f'attachment; filename="{filename}"'}
+            )
+    raise HTTPException(status_code=404, detail="File not found")
 
 
 if __name__ == "__main__":
