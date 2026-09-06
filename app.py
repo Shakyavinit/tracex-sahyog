@@ -497,12 +497,33 @@ def favicon():
 
 @app.get("/", response_class=HTMLResponse)
 def serve_dashboard():
-    """Serve the main investigation dashboard HTML."""
+    """Serve the main investigation dashboard HTML (SIH Evaluation)."""
     html_path = os.path.join(BASE_DIR, "dashboard.html")
     if os.path.exists(html_path):
-        with open(html_path, "r") as f:
+        with open(html_path, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
     return HTMLResponse("<h1>Dashboard loading...</h1>")
+
+
+@app.get("/v1", response_class=HTMLResponse)
+def serve_v1_dashboard():
+    """Serve the original golden master dashboard HTML."""
+    html_path = os.path.join(BASE_DIR, "v1", "index.html")
+    if os.path.exists(html_path):
+        with open(html_path, "r", encoding="utf-8") as f:
+            return HTMLResponse(content=f.read())
+    return HTMLResponse("<h1>V1 Dashboard loading...</h1>")
+
+
+@app.get("/robo", response_class=HTMLResponse)
+@app.get("/old", response_class=HTMLResponse)
+def serve_robo_dashboard():
+    """Serve the original robot pet companion & academy dashboard HTML."""
+    html_path = os.path.join(BASE_DIR, "robo", "index.html")
+    if os.path.exists(html_path):
+        with open(html_path, "r", encoding="utf-8") as f:
+            return HTMLResponse(content=f.read())
+    return HTMLResponse("<h1>Robo Dashboard loading...</h1>")
 
 
 if __name__ == "__main__":

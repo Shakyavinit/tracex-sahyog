@@ -13121,16 +13121,16 @@ main {
     ];
 
     const nodes = [
-      { id: c.suspect_address, label: "SUSPECT_WALLET", role: "Origin / Suspect", chain: c.chain, risk: 85, color: "#f43f5e" },
-      { id: hops[0].to_address, label: "MULE_NODE_1", role: "Mule Layer 1", chain: c.chain, risk: 78, color: "#fbbf24" },
-      { id: hops[1].to_address, label: "MULE_NODE_2", role: "Mule Layer 2", chain: c.chain, risk: 82, color: "#fb923c" },
-      { id: prof.addr, label: prof.name, role: "Target VASP Gateway", chain: c.chain, risk: 15, color: "#34d399", is_vasp: true }
+      { id: c.suspect_address, address: c.suspect_address, label: "SUSPECT_WALLET", role: "Origin / Suspect", node_type: "suspect", chain: c.chain, risk: 85, color: "#ef4444", amount: c.amount_crypto + " " + c.asset },
+      { id: hops[0].to_address, address: hops[0].to_address, label: "MULE_NODE_1", role: "Mule Layer 1", node_type: "intermediary", chain: c.chain, risk: 78, color: "#f59e0b", amount: (c.amount_crypto * 0.98).toFixed(2) + " " + c.asset },
+      { id: hops[1].to_address, address: hops[1].to_address, label: "MULE_NODE_2", role: "Mule Layer 2", node_type: "intermediary", chain: c.chain, risk: 82, color: "#f59e0b", amount: (c.amount_crypto * 0.95).toFixed(2) + " " + c.asset },
+      { id: prof.addr, address: prof.addr, label: prof.name, role: "Target VASP Gateway", node_type: "exchange_deposit", chain: c.chain, risk: 15, color: "#10b981", is_vasp: true, amount: (c.amount_crypto * 0.95).toFixed(2) + " " + c.asset }
     ];
 
     const links = [
-      { source: c.suspect_address, target: hops[0].to_address, value: c.amount_crypto, hash: hops[0].tx_hash },
-      { source: hops[0].to_address, target: hops[1].to_address, value: c.amount_crypto * 0.98, hash: hops[1].tx_hash },
-      { source: hops[1].to_address, target: prof.addr, value: c.amount_crypto * 0.95, hash: hops[2].tx_hash }
+      { source: c.suspect_address, target: hops[0].to_address, from: c.suspect_address, to: hops[0].to_address, value: c.amount_crypto, amount: c.amount_crypto + " " + c.asset, hash: hops[0].tx_hash, tx_hash: hops[0].tx_hash },
+      { source: hops[0].to_address, target: hops[1].to_address, from: hops[0].to_address, to: hops[1].to_address, value: c.amount_crypto * 0.98, amount: (c.amount_crypto * 0.98).toFixed(2) + " " + c.asset, hash: hops[1].tx_hash, tx_hash: hops[1].tx_hash },
+      { source: hops[1].to_address, target: prof.addr, from: hops[1].to_address, to: prof.addr, value: c.amount_crypto * 0.95, amount: (c.amount_crypto * 0.95).toFixed(2) + " " + c.asset, hash: hops[2].tx_hash, tx_hash: hops[2].tx_hash }
     ];
 
     const result = {
@@ -13165,6 +13165,7 @@ main {
       hops: hops,
       nodes: nodes,
       links: links,
+      edges: links,
       timeline: hops,
       timestamp: now.toISOString(),
       neo4j_sync: { status: "SYNCED", graph_nodes: nodes.length, relationships: links.length }
@@ -13940,7 +13941,11 @@ function switchTab(name) {
   const pane = document.getElementById(`pane-${name}`);
   if (pane) pane.classList.add('active');
   if (name === 'graph') {
-    setTimeout(startGraphAnimation, 40);
+    if (!currentTrace && typeof getBenchmarkPathFallback === 'function') {
+      currentTrace = getBenchmarkPathFallback();
+    }
+    setTimeout(startGraphAnimation, 25);
+    setTimeout(drawGraph, 40);
   } else {
     stopGraphAnimation();
   }
@@ -17724,19 +17729,33 @@ function drawGraph() {
   ctx.textAlign = 'left';
   ctx.fillText('◈ TOPOLOGY MATRIX // SYSTEM: TRACEX-NEURAL // PS-26182', 18, 22);
 
-  const nodes = (currentTrace && currentTrace.nodes) ? currentTrace.nodes : [];
-  const edges = (currentTrace && currentTrace.edges) ? currentTrace.edges : [];
+  // Seamless Fallback to Benchmark Case if currentTrace is not yet initialized
+  const traceData = currentTrace || (typeof getBenchmarkPathFallback === 'function' ? getBenchmarkPathFallback() : null);
+  const nodes = (traceData && traceData.nodes && traceData.nodes.length > 0) ? traceData.nodes : [];
+  const rawEdges = (traceData && (traceData.edges || traceData.links)) ? (traceData.edges || traceData.links) : [];
+  const edges = rawEdges.map((e, idx) => {
+    const srcNode = nodes[idx];
+    const dstNode = nodes[idx + 1];
+    return {
+      ...e,
+      from: e.from || e.source || (srcNode ? (srcNode.address || srcNode.id) : ''),
+      to: e.to || e.target || (dstNode ? (dstNode.address || dstNode.id) : ''),
+      amount: e.amount || (e.value ? (e.value + ' ' + (traceData?.asset || 'USDT')) : ''),
+      tx_hash: e.tx_hash || e.hash || '',
+      speed: e.speed || '2-5 min transfer'
+    };
+  });
 
   // Clean, Non-Colliding Bottom Telemetry
   ctx.textAlign = 'right';
   ctx.fillText(`HOPS: ${nodes.length} | FLOW: ${graphFlowActive ? 'ON' : 'OFF'}`, W - 18, H - 14);
 
   ctx.textAlign = 'left';
-  const caseRef = currentCaseId || 'DEMO-26182';
+  const caseRef = (traceData && traceData.case_id) || currentCaseId || 'BENCHMARK-26182';
   ctx.fillText(`◈ CASE: ${caseRef}`, 18, H - 14);
 
-  // 5. IF NO ACTIVE TRACE: RENDER AWESOME RECON RADAR SCREEN
-  if (!currentTrace || nodes.length === 0) {
+  // 5. IF NO ACTIVE TRACE AND NO BENCHMARK: RENDER AWESOME RECON RADAR SCREEN
+  if (nodes.length === 0) {
     ctx.save();
     ctx.translate(W / 2, cy);
 
@@ -17871,8 +17890,8 @@ function drawGraph() {
 
   // 7. DRAW EDGES & ELECTRIC FLOW
   edges.forEach((e, i) => {
-    let src = graphNodePositions[i];
-    let dst = graphNodePositions[i + 1];
+    let src = graphNodePositions.find(p => p.node && (p.node.id === e.from || p.node.address === e.from || p.node.id === e.source || p.node.address === e.source)) || graphNodePositions[i];
+    let dst = graphNodePositions.find(p => p.node && (p.node.id === e.to || p.node.address === e.to || p.node.id === e.target || p.node.address === e.target)) || graphNodePositions[i + 1];
     if (!src || !dst) return;
 
     const srcMeta = getEntityMeta(src.node, src.index);
@@ -18098,7 +18117,8 @@ function drawGraph() {
 
     // Layer 6: Floating Pill Container for Entity Label & Address
     const labelY = p.y + radius + 12;
-    const shortAddr = n.address ? (n.address.slice(0, 6) + '...' + n.address.slice(-4)) : 'N/A';
+    const rawAddr = n.address || n.id || '';
+    const shortAddr = rawAddr.length > 10 ? (rawAddr.slice(0, 6) + '...' + rawAddr.slice(-4)) : (rawAddr || 'N/A');
     const tagText = meta.tag;
 
     ctx.font = 'bold 10px Space Grotesk';
