@@ -7287,79 +7287,335 @@ main {
    AI INVESTIGATOR, TOPBAR SPACE MANAGEMENT & SAHYOG MODAL UPGRADES
    ========================================================================== */
 
-/* Topbar Space Optimization */
+/* Topbar Space Optimization & Masterclass Responsive Fit */
 .topbar {
   background: rgba(3, 7, 24, 0.96) !important;
   backdrop-filter: blur(20px) !important;
   border-bottom: 1px solid rgba(0, 229, 255, 0.28) !important;
-  padding: 0 24px !important;
-  min-height: 64px !important;
+  padding: 0 18px !important;
+  height: 56px !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  gap: 16px !important;
+  gap: 12px !important;
   position: sticky !important;
   top: 0 !important;
   z-index: 1000 !important;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.75), 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.75), 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
 }
 
 .brand {
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 10px !important;
   flex-shrink: 0 !important;
   white-space: nowrap !important;
   cursor: pointer !important;
+  text-decoration: none !important;
+}
+.brand-emblem {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  background: linear-gradient(135deg, #0f172a, #1e1b4b) !important;
+  border: 1.5px solid rgba(0, 229, 255, 0.5) !important;
+  border-radius: 9px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.3) !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 .brand-text {
   flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  line-height: 1.2 !important;
 }
 .brand-text h1 {
   white-space: nowrap !important;
   margin: 0 !important;
-  font-size: 1.15rem !important;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif) !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #fff !important;
+}
+.brand-text h1 span.tx-tag {
+  background: linear-gradient(135deg, #38bdf8, #a855f7) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.5px !important;
+  font-size: 1.12rem !important;
+}
+.brand-text h1 span.sub-tag {
+  color: #34d399 !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.4) !important;
 }
 .brand-sub {
   white-space: nowrap !important;
-  font-size: 0.64rem !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 0.58rem !important;
+  color: #94a3b8 !important;
+  letter-spacing: 0.6px !important;
+  text-transform: uppercase !important;
+  margin-top: 1px !important;
 }
 
+/* Telemetry Hub */
 .topbar-telemetry {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
-  flex: 1 !important;
   justify-content: center !important;
+  gap: 8px !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
   flex-wrap: nowrap !important;
 }
 
+/* Uniform Pill System Across Telemetry */
+.price-ticker-pill,
+.api-radar-pill,
+.mode-toggle-pill {
+  height: 32px !important;
+  line-height: 32px !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 0.70rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  border-radius: 999px !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  user-select: none !important;
+  flex-shrink: 0 !important;
+}
+
+/* 1. Rates Ticker Pill */
+.price-ticker-pill {
+  background: rgba(8, 14, 36, 0.9) !important;
+  border: 1px solid rgba(0, 229, 255, 0.35) !important;
+  padding: 0 12px !important;
+  gap: 8px !important;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.12) !important;
+}
+.price-ticker-pill:hover {
+  border-color: rgba(0, 229, 255, 0.6) !important;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.25) !important;
+}
+.price-ticker-pill.ticker-updating {
+  opacity: 0.4 !important;
+  transform: scale(0.98) !important;
+}
+.ticker-sep {
+  color: rgba(255, 255, 255, 0.2) !important;
+  font-weight: 300 !important;
+  font-size: 0.68rem !important;
+}
+.ticker-indicative {
+  color: #64748b !important;
+  font-size: 0.62rem !important;
+  margin-left: 2px !important;
+}
+
+/* 2. API Radar Pill */
+.api-radar-pill {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border: 1px solid rgba(52, 211, 153, 0.45) !important;
+  padding: 0 12px !important;
+  color: #34d399 !important;
+  cursor: pointer !important;
+  gap: 6px !important;
+}
+.api-radar-pill:hover {
+  background: rgba(16, 185, 129, 0.22) !important;
+  box-shadow: 0 0 18px rgba(52, 211, 153, 0.4) !important;
+  border-color: #34d399 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 3. Mode Switcher Pill */
+.mode-toggle-pill {
+  background: rgba(8, 14, 36, 0.9) !important;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+  padding: 0 12px !important;
+  color: #fbbf24 !important;
+  cursor: pointer !important;
+  gap: 6px !important;
+}
+.mode-toggle-pill:hover {
+  border-color: #fbbf24 !important;
+  box-shadow: 0 0 18px rgba(251, 191, 36, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+.mode-toggle-pill.live-mode {
+  border-color: rgba(52, 211, 153, 0.55) !important;
+  color: #34d399 !important;
+  box-shadow: 0 0 14px rgba(52, 211, 153, 0.2) !important;
+}
+.mode-toggle-pill.live-mode:hover {
+  border-color: #34d399 !important;
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.45) !important;
+}
+
+/* 4. Actions & Tools Hub Button */
 .topbar-actions {
   display: flex !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: 8px !important;
   flex-shrink: 0 !important;
-  white-space: nowrap !important;
+  margin-left: auto !important;
 }
 
-.btn-topbar-nav {
-  height: 36px !important;
-  padding: 0 12px !important;
-  border-radius: 8px !important;
-  font-family: var(--font-display) !important;
+.btn-topbar-tools {
+  height: 32px !important;
+  line-height: 32px !important;
+  padding: 0 12px 0 10px !important;
+  border-radius: 999px !important;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif) !important;
   font-size: 0.72rem !important;
   font-weight: 800 !important;
-  letter-spacing: 0.4px !important;
+  letter-spacing: 0.6px !important;
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   gap: 6px !important;
   cursor: pointer !important;
-  transition: all 0.2s ease !important;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.16) 0%, rgba(99, 102, 241, 0.18) 100%) !important;
+  border: 1px solid rgba(0, 229, 255, 0.5) !important;
+  color: #38bdf8 !important;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.2) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
   white-space: nowrap !important;
+  user-select: none !important;
   box-sizing: border-box !important;
+  flex-shrink: 0 !important;
 }
-.btn-topbar-nav:hover {
+.btn-topbar-tools:hover {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.28) 0%, rgba(99, 102, 241, 0.3) 100%) !important;
+  border-color: #00e5ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.4) !important;
   transform: translateY(-1px) !important;
+}
+.btn-topbar-tools.is-active {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.38) 0%, rgba(99, 102, 241, 0.4) 100%) !important;
+  border-color: #00e5ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.55) !important;
+}
+.tools-gear-icon {
+  width: 14px !important;
+  height: 14px !important;
+  stroke: #00e5ff !important;
+  transition: transform 0.35s ease !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+.btn-topbar-tools:hover .tools-gear-icon {
+  transform: rotate(60deg) !important;
+  filter: drop-shadow(0 0 5px #00e5ff) !important;
+}
+.btn-topbar-tools.is-active .tools-gear-icon {
+  transform: rotate(180deg) !important;
+}
+.tools-btn-label {
+  font-weight: 800 !important;
+  letter-spacing: 0.6px !important;
+  color: #38bdf8 !important;
+}
+.btn-topbar-tools:hover .tools-btn-label {
+  color: #ffffff !important;
+}
+.tools-count-pill {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 0.60rem !important;
+  font-weight: 800 !important;
+  padding: 1px 5px !important;
+  line-height: 1.2 !important;
+  border-radius: 999px !important;
+  background: rgba(0, 229, 255, 0.2) !important;
+  border: 1px solid rgba(0, 229, 255, 0.45) !important;
+  color: #38bdf8 !important;
+  letter-spacing: 0.4px !important;
+}
+.tools-chevron-svg {
+  width: 8px !important;
+  height: 8px !important;
+  stroke: #38bdf8 !important;
+  transition: transform 0.2s ease !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+.btn-topbar-tools.is-active .tools-chevron-svg {
+  transform: rotate(180deg) !important;
+  stroke: #00e5ff !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE FIT BREAKPOINTS FOR TOPBAR
+   ========================================================================== */
+@media (max-width: 1380px) {
+  .ticker-indicative {
+    display: none !important;
+  }
+  .brand-text h1 span.sub-tag {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1150px) {
+  .brand-sub {
+    display: none !important;
+  }
+  .ticker-sol-wrap {
+    display: none !important;
+  }
+  .mode-prefix {
+    display: none !important;
+  }
+  .topbar {
+    padding: 0 12px !important;
+    gap: 8px !important;
+  }
+  .topbar-telemetry {
+    gap: 6px !important;
+  }
+}
+
+@media (max-width: 880px) {
+  .price-ticker-pill {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .tools-btn-label,
+  .tools-chevron-svg {
+    display: none !important;
+  }
+  .api-radar-pill {
+    padding: 0 8px !important;
+  }
+  .mode-toggle-pill {
+    padding: 0 8px !important;
+  }
 }
 
 /* Widescreen SAHYOG Dispatch Gateway Modal */
@@ -7482,8 +7738,7 @@ main {
 /* ==========================================================================
    MASTERCLASS FORENSIC TOOLS HUB & DOCK (Fund Flow Visualizer DECK)
    ========================================================================== */
-.btn-topbar-tools {
-  height: 36px !important;
+.btn-topbar-tools { height: 32px !important;
   padding: 0 16px 0 12px !important;
   border-radius: 999px !important;
   font-family: var(--font-display, 'Space Grotesk', sans-serif) !important;
@@ -8001,8 +8256,7 @@ main {
 /* ==========================================================================
    MASTERCLASS FORENSIC TOOLS HUB & DOCK (Fund Flow Visualizer DECK)
    ========================================================================== */
-.btn-topbar-tools {
-  height: 36px !important;
+.btn-topbar-tools { height: 32px !important;
   padding: 0 16px 0 12px !important;
   border-radius: 999px !important;
   font-family: var(--font-display, 'Space Grotesk', sans-serif) !important;
@@ -8520,8 +8774,7 @@ main {
 /* ==========================================================================
    MASTERCLASS FORENSIC TOOLS HUB (3-COLUMN WIDESCREEN MODAL POPUP)
    ========================================================================== */
-.btn-topbar-tools {
-  height: 36px !important;
+.btn-topbar-tools { height: 32px !important;
   padding: 0 16px 0 12px !important;
   border-radius: 999px !important;
   font-family: var(--font-display, 'Space Grotesk', sans-serif) !important;
@@ -9524,8 +9777,7 @@ main {
 /* ==========================================================================
    PERFECT MASTERCLASS FORENSIC TOOLS HUB (FIXED FILTERING & ZERO TEXT CUTOFF)
    ========================================================================== */
-.btn-topbar-tools {
-  height: 36px !important;
+.btn-topbar-tools { height: 32px !important;
   padding: 0 16px 0 12px !important;
   border-radius: 999px !important;
   font-family: var(--font-display, 'Space Grotesk', sans-serif) !important;
@@ -10342,6 +10594,342 @@ main {
   letter-spacing: 0.3px;
 }
 
+
+/* ==========================================================================
+   FINAL DEFINITIVE TOPBAR STYLES & FULL RESPONSIVE FIT
+   ========================================================================== */
+.topbar {
+  background: rgba(3, 7, 24, 0.97) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(0, 229, 255, 0.28) !important;
+  padding: 0 18px !important;
+  height: 56px !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.75), 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+}
+.brand-emblem {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  background: linear-gradient(135deg, #0f172a, #1e1b4b) !important;
+  border: 1.5px solid rgba(0, 229, 255, 0.5) !important;
+  border-radius: 9px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.3) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+.brand-emblem svg {
+  width: 26px !important;
+  height: 26px !important;
+  display: block !important;
+}
+.brand-text {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  line-height: 1.2 !important;
+}
+.brand-text h1 {
+  white-space: nowrap !important;
+  margin: 0 !important;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif) !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  color: #fff !important;
+}
+.brand-text h1 span.tx-tag {
+  background: linear-gradient(135deg, #38bdf8, #a855f7) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.5px !important;
+  font-size: 1.12rem !important;
+}
+.brand-text h1 span.sub-tag {
+  color: #34d399 !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.4) !important;
+}
+.brand-sub {
+  white-space: nowrap !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 0.58rem !important;
+  color: #94a3b8 !important;
+  letter-spacing: 0.6px !important;
+  text-transform: uppercase !important;
+  margin-top: 1px !important;
+}
+
+/* Telemetry Section */
+.topbar-telemetry {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  flex-wrap: nowrap !important;
+}
+
+.price-ticker-pill,
+.api-radar-pill,
+.mode-toggle-pill {
+  height: 32px !important;
+  line-height: 32px !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 0.70rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  border-radius: 999px !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  user-select: none !important;
+  flex-shrink: 0 !important;
+}
+
+.price-ticker-pill {
+  background: rgba(8, 14, 36, 0.9) !important;
+  border: 1px solid rgba(0, 229, 255, 0.35) !important;
+  padding: 0 12px !important;
+  gap: 8px !important;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.12) !important;
+}
+.price-ticker-pill:hover {
+  border-color: rgba(0, 229, 255, 0.6) !important;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.25) !important;
+}
+.price-ticker-pill.ticker-updating {
+  opacity: 0.4 !important;
+  transform: scale(0.98) !important;
+}
+.ticker-sep {
+  color: rgba(255, 255, 255, 0.2) !important;
+  font-weight: 300 !important;
+  font-size: 0.68rem !important;
+}
+.ticker-indicative {
+  color: #64748b !important;
+  font-size: 0.62rem !important;
+  margin-left: 2px !important;
+}
+
+.api-radar-pill {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border: 1px solid rgba(52, 211, 153, 0.45) !important;
+  padding: 0 12px !important;
+  color: #34d399 !important;
+  cursor: pointer !important;
+  gap: 6px !important;
+}
+.api-radar-pill:hover {
+  background: rgba(16, 185, 129, 0.22) !important;
+  box-shadow: 0 0 18px rgba(52, 211, 153, 0.4) !important;
+  border-color: #34d399 !important;
+  transform: translateY(-1px) !important;
+}
+
+.mode-toggle-pill {
+  background: rgba(8, 14, 36, 0.9) !important;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+  padding: 0 12px !important;
+  color: #fbbf24 !important;
+  cursor: pointer !important;
+  gap: 6px !important;
+}
+.mode-toggle-pill:hover {
+  border-color: #fbbf24 !important;
+  box-shadow: 0 0 18px rgba(251, 191, 36, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+.mode-toggle-pill.live-mode {
+  border-color: rgba(52, 211, 153, 0.55) !important;
+  color: #34d399 !important;
+  box-shadow: 0 0 14px rgba(52, 211, 153, 0.2) !important;
+}
+.mode-toggle-pill.live-mode:hover {
+  border-color: #34d399 !important;
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.45) !important;
+}
+
+/* Actions Section */
+.topbar-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-shrink: 0 !important;
+  margin-left: auto !important;
+}
+
+.btn-topbar-tools {
+  height: 32px !important;
+  line-height: 32px !important;
+  padding: 0 12px 0 10px !important;
+  border-radius: 999px !important;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif) !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.16) 0%, rgba(99, 102, 241, 0.18) 100%) !important;
+  border: 1px solid rgba(0, 229, 255, 0.5) !important;
+  color: #38bdf8 !important;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.2) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  white-space: nowrap !important;
+  user-select: none !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0 !important;
+}
+.btn-topbar-tools:hover {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.28) 0%, rgba(99, 102, 241, 0.3) 100%) !important;
+  border-color: #00e5ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.4) !important;
+  transform: translateY(-1px) !important;
+}
+.btn-topbar-tools.is-active {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.38) 0%, rgba(99, 102, 241, 0.4) 100%) !important;
+  border-color: #00e5ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 24px rgba(0, 229, 255, 0.55) !important;
+}
+.tools-gear-icon {
+  width: 14px !important;
+  height: 14px !important;
+  stroke: #00e5ff !important;
+  transition: transform 0.35s ease !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+.btn-topbar-tools:hover .tools-gear-icon {
+  transform: rotate(60deg) !important;
+  filter: drop-shadow(0 0 5px #00e5ff) !important;
+}
+.btn-topbar-tools.is-active .tools-gear-icon {
+  transform: rotate(180deg) !important;
+}
+.tools-btn-label {
+  font-weight: 800 !important;
+  letter-spacing: 0.6px !important;
+  color: #38bdf8 !important;
+}
+.btn-topbar-tools:hover .tools-btn-label {
+  color: #ffffff !important;
+}
+.tools-count-pill {
+  font-family: var(--font-mono, monospace) !important;
+  font-size: 0.60rem !important;
+  font-weight: 800 !important;
+  padding: 1px 5px !important;
+  line-height: 1.2 !important;
+  border-radius: 999px !important;
+  background: rgba(0, 229, 255, 0.2) !important;
+  border: 1px solid rgba(0, 229, 255, 0.45) !important;
+  color: #38bdf8 !important;
+  letter-spacing: 0.4px !important;
+}
+.tools-chevron-svg {
+  width: 8px !important;
+  height: 8px !important;
+  stroke: #38bdf8 !important;
+  transition: transform 0.2s ease !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+.btn-topbar-tools.is-active .tools-chevron-svg {
+  transform: rotate(180deg) !important;
+  stroke: #00e5ff !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE FIT BREAKPOINTS FOR TOPBAR
+   ========================================================================== */
+@media (max-width: 1380px) {
+  .ticker-indicative {
+    display: none !important;
+  }
+  .brand-text h1 span.sub-tag {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1150px) {
+  .brand-sub {
+    display: none !important;
+  }
+  .ticker-sol-wrap {
+    display: none !important;
+  }
+  .mode-prefix {
+    display: none !important;
+  }
+  .topbar {
+    padding: 0 12px !important;
+    gap: 8px !important;
+  }
+  .topbar-telemetry {
+    gap: 6px !important;
+  }
+}
+
+@media (max-width: 880px) {
+  .price-ticker-pill {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .tools-btn-label,
+  .tools-chevron-svg {
+    display: none !important;
+  }
+  .api-radar-pill {
+    padding: 0 8px !important;
+  }
+  .mode-toggle-pill {
+    padding: 0 8px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -10648,9 +11236,9 @@ main {
      TOPBAR COMMAND HEADER // TraceX RESEARCH PROTOTYPE
      ═══════════════════════════════════════════════════════════════════════════ -->
 <header class="topbar">
-  <div class="brand" id="brandBtn" onclick="openTraceXConsole()" style="cursor:pointer" title="Click to open TraceX Intelligence Console & Diagnostics">
+  <div class="brand" id="brandBtn" onclick="openTraceXConsole()" style="cursor:pointer" title="Click to open TraceX Intelligence Console &amp; Diagnostics">
     <div class="brand-emblem" id="brandLogo">
-      <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="26" height="26" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <polygon points="50,6 92,26 92,74 50,94 8,74 8,26" stroke="url(#txGlowMain)" stroke-width="4" fill="rgba(11,15,38,0.7)"/>
         <circle cx="50" cy="50" r="32" stroke="rgba(52,211,153,0.4)" stroke-width="2" stroke-dasharray="8 6" class="spin-ring"/>
         <circle cx="50" cy="50" r="21" stroke="rgba(56,189,248,0.6)" stroke-width="2"/>
@@ -10670,45 +11258,45 @@ main {
     </div>
   </div>
 
-                        <div class="topbar-telemetry">
-      <!-- 1. Crypto Valuation Ticker (Indicative) -->
-      <div class="price-ticker-pill" id="priceTicker" title="CoinGecko Indicative Rates">
-        <span class="live-beacon"><span class="live-beacon-dot"></span>RATES</span>
-        <span class="ticker-sep">|</span>
-        <span class="ticker-item" style="color:#f59e0b">₿ <b id="tickerBtc">~$81k</b></span>
-        <span class="ticker-sep">|</span>
-        <span class="ticker-item" style="color:#38bdf8">Ξ <b id="tickerEth">~$2.5k</b></span>
-        <span class="ticker-sep">|</span>
-        <span class="ticker-item" style="color:#a855f7">◎ <b id="tickerSol">~$105</b> (indicative)</span>
-      </div>
-
-      <!-- 2. Real-Time API Radar Status -->
-      <div class="api-radar-pill" onclick="openTraceXConsole()" title="Click to open API Tester & Benchmark Console">
-        <span class="live-beacon-dot"></span>
-        <span id="topbarApiCount">7 EVAL APIs CONFIGURED</span>
-      </div>
-
-      <!-- 3. Interactive Mode Switcher (Prototype) -->
-      <div class="mode-toggle-pill" id="modePill" onclick="toggleAppMode()" title="Click to toggle between Synthetic Demo and Direct Query mode">
-        <span id="modeDot" class="status-dot status-dot-amber"></span>
-        <span id="modeText">MODE: SYNTHETIC DEMO</span>
-      </div>
+  <div class="topbar-telemetry">
+    <!-- 1. Crypto Valuation Ticker (Indicative) -->
+    <div class="price-ticker-pill" id="priceTicker" title="CoinGecko Indicative Rates">
+      <span class="live-beacon"><span class="live-beacon-dot"></span>RATES</span>
+      <span class="ticker-sep">|</span>
+      <span class="ticker-item ticker-item-btc" style="color:#f59e0b">₿ <b id="tickerBtc">~$81k</b></span>
+      <span class="ticker-sep">|</span>
+      <span class="ticker-item ticker-item-eth" style="color:#38bdf8">Ξ <b id="tickerEth">~$2.5k</b></span>
+      <span class="ticker-sol-wrap"><span class="ticker-sep">|</span> <span class="ticker-item ticker-item-sol" style="color:#a855f7">◎ <b id="tickerSol">~$105</b></span></span>
+      <span class="ticker-indicative">(indicative)</span>
     </div>
 
-    <div class="topbar-actions">
-      <!-- 4. Forensic Tools Hub Button -->
-      <button class="btn-topbar-tools" id="btnToolsHub" onclick="openToolsHub()" title="Open Forensic Tools & Intelligence Command Dock (Alt + T)">
-        <svg class="tools-gear-icon" width="17" height="17" style="width:17px;height:17px;max-width:17px;max-height:17px" width="17" height="17" style="width:17px;height:17px;max-width:17px;max-height:17px" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="3"></circle>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-        </svg>
-        <span class="tools-btn-label">TOOLS</span>
-        <span class="tools-count-pill" id="topbarToolsCount">12</span>
-        <svg class="tools-chevron-svg" width="10" height="10" style="width:10px;height:10px;max-width:10px;max-height:10px" width="10" height="10" style="width:10px;height:10px;max-width:10px;max-height:10px" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </button>
+    <!-- 2. Real-Time API Radar Status -->
+    <div class="api-radar-pill" onclick="openTraceXConsole()" title="Click to open API Tester &amp; Benchmark Console">
+      <span class="live-beacon-dot"></span>
+      <span id="topbarApiCount">7/7 APIS ACTIVE</span>
     </div>
+
+    <!-- 3. Interactive Mode Switcher (Prototype) -->
+    <div class="mode-toggle-pill" id="modePill" onclick="toggleAppMode()" title="Click to toggle between Synthetic Demo and Direct Query mode">
+      <span id="modeDot" class="status-dot status-dot-amber"></span>
+      <span id="modeText"><span class="mode-prefix">MODE: </span>SYNTHETIC DEMO</span>
+    </div>
+  </div>
+
+  <div class="topbar-actions">
+    <!-- 4. Forensic Tools Hub Button -->
+    <button class="btn-topbar-tools" id="btnToolsHub" onclick="openToolsHub()" title="Open Forensic Tools &amp; Intelligence Command Dock (Alt + T)">
+      <svg class="tools-gear-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+      <span class="tools-btn-label">TOOLS</span>
+      <span class="tools-count-pill" id="topbarToolsCount">12</span>
+      <svg class="tools-chevron-svg" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
 </header>
 
 <!-- =========================================================================
@@ -14448,7 +15036,7 @@ async function testAllApis() {
       badge.className = data.summary.all_operational ? 'postman-badge method-get' : 'postman-badge method-post';
     }
     const topbarCount = document.getElementById('topbarApiCount');
-    if (topbarCount) topbarCount.textContent = `${data.summary.live_apis}/${data.summary.total_apis} APIS CONFIGURED`;
+    if (topbarCount) topbarCount.textContent = `${data.summary.live_apis}/${data.summary.total_apis} APIS ACTIVE`;
 
     const apis = data.apis || {};
     container.innerHTML = Object.keys(apis).map(apiId => renderApiCard(apiId, apis[apiId])).join('');
@@ -15170,7 +15758,7 @@ function updateModeUI() {
   if (currentMode === 'live') {
     if (pill) pill.classList.add('live-mode');
     if (dot) dot.className = 'status-dot status-dot-green';
-    if (text) text.textContent = 'MODE: DIRECT QUERY';
+    if (text) text.innerHTML = '<span class="mode-prefix">MODE: </span>DIRECT QUERY';
     if (banner) {
       banner.className = 'mode-banner-live';
       banner.innerHTML = '<span class="status-dot status-dot-green" style="margin-right:6px"></span> <b>Direct query mode active:</b> Querying blockchain indexers directly. Attribution outputs are probabilistic attribution and represent a draft for review by authorized agencies.';
@@ -15178,7 +15766,7 @@ function updateModeUI() {
   } else {
     if (pill) pill.classList.remove('live-mode');
     if (dot) dot.className = 'status-dot status-dot-amber';
-    if (text) text.textContent = 'MODE: SYNTHETIC DEMO';
+    if (text) text.innerHTML = '<span class="mode-prefix">MODE: </span>SYNTHETIC DEMO';
     if (banner) {
       banner.className = 'mode-banner-demo';
       banner.innerHTML = '<span class="status-dot status-dot-amber" style="margin-right:6px"></span> <b>Research Prototype (Synthetic Demo Data):</b> Preloaded evaluation benchmarks. Attribution is probabilistic attribution. Outputs represent a draft for review by authorized agencies.';
