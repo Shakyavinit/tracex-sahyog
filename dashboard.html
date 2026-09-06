@@ -317,7 +317,7 @@ main {
   min-height: calc(100vh - 69px);
 }
 
-/* ── SIDEBAR HUD (TACTICAL RECON) ── */
+/* ── SIDEBAR HUD (CASE INTAKE) ── */
 .sidebar {
   background: rgba(6, 8, 24, 0.7);
   backdrop-filter: blur(20px);
@@ -471,9 +471,9 @@ main {
 }
 
 /* ==========================================================================
-   ELEVATED TACTICAL SIDEBAR & PRE-LOADED CASE DOSSIER DECK
+   ELEVATED SIDEBAR & PRE-LOADED CASE DOSSIER DECK
    ========================================================================== */
-.tactical-case-card {
+.case-dossier-card {
   background: linear-gradient(135deg, rgba(8, 14, 38, 0.85) 0%, rgba(4, 7, 22, 0.95) 100%);
   border: 1px solid rgba(0, 229, 255, 0.18);
   border-radius: 10px;
@@ -485,26 +485,26 @@ main {
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
-.tactical-case-card:hover {
+.case-dossier-card:hover {
   border-color: rgba(0, 229, 255, 0.55);
   background: linear-gradient(135deg, rgba(12, 22, 54, 0.95) 0%, rgba(6, 12, 34, 0.98) 100%);
   transform: translateX(4px);
   box-shadow: 0 6px 24px rgba(0, 229, 255, 0.2), 0 0 12px rgba(0, 229, 255, 0.15);
 }
-.tactical-case-header {
+.case-dossier-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 6px;
 }
-.tactical-case-id {
+.case-dossier-id {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 800;
   color: #00e5ff;
   letter-spacing: 0.5px;
 }
-.tactical-case-risk {
+.case-dossier-risk {
   font-family: var(--font-mono);
   font-size: 0.62rem;
   font-weight: 800;
@@ -512,22 +512,22 @@ main {
   border-radius: 4px;
   text-transform: uppercase;
 }
-.tactical-case-risk.critical {
+.case-dossier-risk.critical {
   background: rgba(239, 68, 68, 0.2);
   color: #f87171;
   border: 1px solid rgba(239, 68, 68, 0.4);
 }
-.tactical-case-risk.high {
+.case-dossier-risk.high {
   background: rgba(245, 158, 11, 0.2);
   color: #fbbf24;
   border: 1px solid rgba(245, 158, 11, 0.4);
 }
-.tactical-case-risk.minimal {
+.case-dossier-risk.minimal {
   background: rgba(16, 185, 129, 0.2);
   color: #34d399;
   border: 1px solid rgba(16, 185, 129, 0.4);
 }
-.tactical-case-title {
+.case-dossier-title {
   font-family: var(--font-display);
   font-size: 0.88rem;
   font-weight: 700;
@@ -535,7 +535,7 @@ main {
   margin-bottom: 4px;
   line-height: 1.3;
 }
-.tactical-case-desc {
+.case-dossier-desc {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   color: #94a3b8;
@@ -546,14 +546,14 @@ main {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.tactical-case-meta {
+.case-dossier-meta {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
   margin-bottom: 8px;
 }
-.tactical-case-pill {
+.case-dossier-pill {
   font-family: var(--font-mono);
   font-size: 0.62rem;
   background: rgba(255, 255, 255, 0.05);
@@ -562,7 +562,7 @@ main {
   padding: 1px 6px;
   border-radius: 4px;
 }
-.tactical-case-actions {
+.case-dossier-actions {
   display: flex;
   gap: 6px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -810,7 +810,7 @@ main {
 /* ── INVESTIGATION RESULT SECTION ── */
 #resultsView { display: none; }
 
-/* ── Tactical Nav Tabs ── */
+/* ── Investigative Nav Tabs ── */
 .cyber-tabs {
   display: flex;
   gap: 8px;
@@ -2964,7 +2964,7 @@ body, p, input, select, textarea, td, th, .body-std {
   color: #cbd5e1;
 }
 
-/* Dual Tactical Charts Row */
+/* Analytical Charts Row */
 .analytics-charts-deck {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3283,7 +3283,7 @@ body, p, input, select, textarea, td, th, .body-std {
   text-overflow: ellipsis;
 }
 
-/* Tactical Presets & Form Area */
+/* Investigative Presets & Form Area */
 .notice-config-box {
   background: linear-gradient(135deg, rgba(8, 14, 38, 0.6) 0%, rgba(3, 7, 20, 0.8) 100%);
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -3327,7 +3327,7 @@ body, p, input, select, textarea, td, th, .body-std {
   color: #34d399;
 }
 
-/* Tactical Requisition Directives Checkboxes */
+/* Investigative Requisition Directives Checkboxes */
 .notice-mandates-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -3891,8 +3891,8 @@ body, p, input, select, textarea, td, th, .body-std {
   z-index: 1;
 }
 
-/* Tactical Hop Card Styling */
-.tactical-hop-card {
+/* Hop Evidence Card Styling */
+.hop-evidence-card {
   display: flex;
   align-items: flex-start;
   gap: 18px;
@@ -3906,7 +3906,7 @@ body, p, input, select, textarea, td, th, .body-std {
   z-index: 2;
   margin-bottom: 0;
 }
-.tactical-hop-card:hover {
+.hop-evidence-card:hover {
   border-color: rgba(0, 229, 255, 0.65);
   transform: translateX(4px);
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 229, 255, 0.25);
@@ -4541,7 +4541,7 @@ body, p, input, select, textarea, td, th, .body-std {
   color: #fff;
 }
 
-/* 5-Card Tactical Prompt Grid */
+/* 5-Card Investigative Prompt Grid */
 .copilot-prompt-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -6092,13 +6092,13 @@ main,
   border-color: #ef4444;
   color: #fff;
 }
-.tactical-case-card.active {
+.case-dossier-card.active {
   border-color: #00e5ff !important;
   background: linear-gradient(135deg, rgba(0, 229, 255, 0.14) 0%, rgba(10, 24, 58, 0.95) 100%) !important;
   box-shadow: 0 0 25px rgba(0, 229, 255, 0.35), inset 0 0 15px rgba(0, 229, 255, 0.12) !important;
   transform: translateX(6px) !important;
 }
-.tactical-case-card.active::before {
+.case-dossier-card.active::before {
   content: '';
   position: absolute;
   top: 0;
@@ -6108,7 +6108,7 @@ main,
   background: #00e5ff;
   box-shadow: 0 0 12px #00e5ff;
 }
-.tactical-case-card .active-tag {
+.case-dossier-card .active-tag {
   display: none;
   font-family: var(--font-mono);
   font-size: 0.6rem;
@@ -6120,12 +6120,12 @@ main,
   border-radius: 3px;
   letter-spacing: 0.5px;
 }
-.tactical-case-card.active .active-tag {
+.case-dossier-card.active .active-tag {
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
-.tactical-case-asset-pill {
+.case-dossier-asset-pill {
   font-family: var(--font-mono);
   font-size: 0.62rem;
   font-weight: 700;
@@ -6165,7 +6165,7 @@ main {
   background: rgba(0, 229, 255, 0.5);
 }
 
-/* Tactical Section Header */
+/* Investigative Section Header */
 .sidebar-section-header {
   display: flex;
   justify-content: space-between;
@@ -7611,7 +7611,7 @@ main {
   box-sizing: border-box !important;
 }
 
-.hub-top-laser {
+.hub-top-accent {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
@@ -7948,7 +7948,7 @@ main {
   transform: translateX(3px) !important;
 }
 
-/* Footer Tactical Bar */
+/* Footer Investigative Bar */
 .tools-hub-footer {
   display: flex !important;
   align-items: center !important;
@@ -8130,7 +8130,7 @@ main {
   box-sizing: border-box !important;
 }
 
-.hub-top-laser {
+.hub-top-accent {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
@@ -8467,7 +8467,7 @@ main {
   transform: translateX(3px) !important;
 }
 
-/* Footer Tactical Bar */
+/* Footer Investigative Bar */
 .tools-hub-footer {
   display: flex !important;
   align-items: center !important;
@@ -8649,7 +8649,7 @@ main {
   box-sizing: border-box !important;
 }
 
-.hub-top-laser {
+.hub-top-accent {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
@@ -8992,7 +8992,7 @@ main {
   transform: translateX(3px) !important;
 }
 
-/* Footer Tactical Bar */
+/* Footer Investigative Bar */
 .tools-hub-footer {
   display: flex !important;
   align-items: center !important;
@@ -9644,7 +9644,7 @@ main {
   box-sizing: border-box !important;
 }
 
-.hub-top-laser {
+.hub-top-accent {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
@@ -9990,7 +9990,7 @@ main {
   transform: translateX(3px) !important;
 }
 
-/* Footer Tactical Bar */
+/* Footer Investigative Bar */
 .tools-hub-footer {
   display: flex !important;
   align-items: center !important;
@@ -10049,7 +10049,7 @@ main {
 
 /* Global Disclaimer Banner */
 .sih-global-disclaimer-banner {
-  background: linear-gradient(90deg, rgba(245, 158, 11, 0.18) 0%, rgba(6, 12, 32, 0.98) 50%, rgba(56, 189, 248, 0.18) 100%);
+  background: rgba(15, 23, 42, 0.95); border-bottom: 1px solid rgba(56, 189, 248, 0.25);
   border-bottom: 1px solid rgba(245, 158, 11, 0.4);
   padding: 8px 24px;
   position: relative;
@@ -10212,7 +10212,7 @@ main {
   display: none;
 }
 
-/* LEA Operational Context & Limitations Sections */
+/* LEA Analysis Context & Limitations Sections */
 .lea-intel-section {
   background: rgba(8, 14, 38, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -10319,6 +10319,29 @@ main {
   font-weight: 600;
 }
 
+
+/* Calm, sober disclaimer for every pane / view */
+.sober-pane-disclaimer {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 6px 14px;
+  margin: 0 0 16px 0;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sober-pane-disclaimer-tag {
+  color: #38bdf8;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
 </style>
 </head>
 <body>
@@ -10404,7 +10427,7 @@ main {
           <div class="sfc-bullets">
             • FATF Red Flag Indicators: Peel chains, structuring, mixer pools.<br/>
             • Real-time US Treasury OFAC SDN Sanctions verification.<br/>
-            • Live CoinGecko fiat conversion (USD & INR spot rates).
+            • CoinGecko reference valuation (USD & INR reference rates).
           </div>
         </div>
       </div>
@@ -10435,7 +10458,7 @@ main {
           📡 API Console & Benchmarks
         </button>
         <button class="btn-cyber btn-primary-glow" onclick="closeSihIntroModal()" style="font-size:0.82rem;padding:8px 24px;background:linear-gradient(135deg,#00e5ff,#10b981);color:#020512;font-weight:900">
-          ⚡ ENTER FORENSIC DASHBOARD
+          ENTER EVALUATION DASHBOARD
         </button>
       </div>
     </div>
@@ -10459,7 +10482,7 @@ main {
       <div style="flex:1;min-width:280px">
         <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:900;color:#fff;margin:0;letter-spacing:0.5px">TraceX Forensic Diagnostics Console</h2>
         <div style="font-family:var(--font-mono);font-size:0.72rem;color:#10b981;margin-top:2px">
-          Live System Health Telemetry, Multi-Chain API Benchmarks & Neo4j Aura Cloud Status
+          Prototype System Health, Multi-Chain API Benchmarks & Neo4j Aura Cloud Status
         </div>
       </div>
     </div>
@@ -10476,7 +10499,7 @@ main {
       </div>
       <div class="diag-item">
         <div class="diag-label">Graph Database</div>
-        <div class="diag-val" style="color:#38bdf8;cursor:pointer" onclick="openNeo4jModal()" title="Click to open V.I.N.I. Graph Terminal">V.I.N.I. Graph Core [Neo4j Aura / LIVE]</div>
+        <div class="diag-val" style="color:#38bdf8;cursor:pointer" onclick="openNeo4jModal()" title="Click to open V.I.N.I. Graph Terminal">V.I.N.I. Graph Core [Neo4j Aura / ACTIVE]</div>
       </div>
       <div class="diag-item">
         <div class="diag-label">Connected APIs</div>
@@ -10488,21 +10511,21 @@ main {
       </div>
       <div class="diag-item">
         <div class="diag-label">Deployment Mode</div>
-        <div class="diag-val cyan">Live Tunnel (Cloudflare + LAN)</div>
+        <div class="diag-val cyan">Cloud Tunnel (Prototype)</div>
       </div>
     </div>
 
-    <!-- ════════ POSTMAN-STYLE LIVE API TESTING & BENCHMARK CONSOLE ════════ -->
+    <!-- ════════ API BENCHMARK & TEST CONSOLE ════════ -->
     <div class="postman-box" id="postmanBox">
       <div class="postman-header">
         <div>
           <div style="display:flex;align-items:center;gap:8px">
             <span style="font-size:1.1rem">🚀</span>
-            <span style="font-family:var(--font-display);font-size:0.95rem;font-weight:800;color:#fff">Live API Health & Postman Test Console</span>
+            <span style="font-family:var(--font-display);font-size:0.95rem;font-weight:800;color:#fff">API Health & Benchmark Test Console</span>
             <span class="postman-badge method-get" id="overallApiBadge"><span class="status-dot status-dot-green" style="margin-right:4px"></span> 7/7 APIs Configured (Evaluation Mode)</span>
           </div>
           <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--text-muted);margin-top:2px">
-            Real-time ping benchmarks, latency telemetry & live payload inspection
+            Benchmark latency telemetry & sample payload inspection (Research Prototype)
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:8px">
@@ -10529,7 +10552,7 @@ main {
       <div id="connectedApisTab">
         <div id="postmanApiCards">
           <div style="text-align:center;padding:20px;font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted)">
-            ⏳ Click 'PING ALL 7 APIS' or click logo to inspect live upstream node connections...
+            ⏳ Click 'PING ALL 7 APIS' or click logo to inspect upstream node connections...
           </div>
         </div>
       </div>
@@ -10607,15 +10630,15 @@ main {
       <p style="line-height:1.6;margin-bottom:10px">
         "TraceX is an automated blockchain forensic intelligence system that traces illicit fund flows from unhosted suspect wallets across multi-hop peel chains directly to destination centralized exchanges (e.g., Binance, CoinDCX, WazirX). It integrates real-time on-chain balance queries, cryptographic OFAC sanctions verification, public scam intelligence feeds, and automated FATF money laundering typology classification. Upon attributing the terminal VASP, it instantly synthesizes a statutory Section 91 BNSS / CrPC asset-freezing requisition directive. All integrated forensics APIs operate in real-time."
       </p>
-      <div style="font-weight:700;color:var(--accent-cyan);margin-bottom:4px">🔑 Connected Live APIs:</div>
+      <div style="font-weight:700;color:var(--accent-cyan);margin-bottom:4px">🔑 Configured Evaluation APIs:</div>
       <div style="font-family:var(--font-mono);font-size:0.72rem;line-height:1.6">
         • Etherscan V2 API (Ethereum / EVM) — Active Key<br/>
         • TronGrid API (TRON / TRC-20 USDT) — Active Pro Key<br/>
         • Bitquery V2 GraphQL (Multi-Chain Indexing) — Active Bearer Token<br/>
-        • CoinGecko API (USD / INR Live Rates) — Active Demo Key<br/>
+        • CoinGecko API (USD / INR Rates) — Evaluation Key<br/>
         • Blockstream Esplora (Bitcoin On-Chain) — Zero Key<br/>
         • US Treasury OFAC SLS (Cryptographic Sanctions) — Official SDN<br/>
-        • Chainabuse (Public Scam Reports) — Live DB
+        • Chainabuse (Public Scam Reports) — Public Registry
       </div>
     </div>
   </div>
@@ -10649,8 +10672,8 @@ main {
 
                         <div class="topbar-telemetry">
       <!-- 1. Live Crypto Valuation Ticker -->
-      <div class="price-ticker-pill" id="priceTicker" title="CoinGecko Live Crypto Valuation">
-        <span class="live-beacon"><span class="live-beacon-dot"></span>LIVE</span>
+      <div class="price-ticker-pill" id="priceTicker" title="CoinGecko Reference Valuation">
+        <span class="live-beacon"><span class="live-beacon-dot"></span>RATES</span>
         <span class="ticker-sep">|</span>
         <span class="ticker-item" style="color:#f59e0b">₿ <b id="tickerBtc">$81.4k</b></span>
         <span class="ticker-sep">|</span>
@@ -10660,20 +10683,20 @@ main {
       </div>
 
       <!-- 2. Real-Time API Radar Status -->
-      <div class="api-radar-pill" onclick="openTraceXConsole()" title="Click to open Postman API Tester & Live Benchmarks">
+      <div class="api-radar-pill" onclick="openTraceXConsole()" title="Click to open API Tester & Benchmark Console">
         <span class="live-beacon-dot"></span>
         <span id="topbarApiCount">7 EVAL APIs CONFIGURED</span>
       </div>
 
       <!-- 3. Interactive DEMO / LIVE Mode Switcher -->
-      <div class="mode-toggle-pill" id="modePill" onclick="toggleAppMode()" title="Click to toggle between DEMO Benchmark and LIVE On-Chain mode">
+      <div class="mode-toggle-pill" id="modePill" onclick="toggleAppMode()" title="Click to toggle between Synthetic Demo and Direct Query mode">
         <span id="modeDot" class="status-dot status-dot-amber"></span>
-        <span id="modeText">MODE: DEMO BENCHMARK</span>
+        <span id="modeText">MODE: SYNTHETIC DEMO</span>
       </div>
     </div>
 
     <div class="topbar-actions">
-      <!-- 4. Tactical Forensic Tools Hub Button -->
+      <!-- 4. Forensic Tools Hub Button -->
       <button class="btn-topbar-tools" id="btnToolsHub" onclick="openToolsHub()" title="Open Forensic Tools & Intelligence Command Dock (Alt + T)">
         <svg class="tools-gear-icon" width="17" height="17" style="width:17px;height:17px;max-width:17px;max-height:17px" width="17" height="17" style="width:17px;height:17px;max-width:17px;max-height:17px" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="3"></circle>
@@ -10693,7 +10716,7 @@ main {
      ========================================================================= -->
 <div class="tools-hub-overlay" id="toolsHubOverlay" onclick="handleToolsHubBackdrop(event)" style="display:none">
   <div class="tools-hub-box" id="toolsHubBox">
-    <div class="hub-top-laser"></div>
+    <div class="hub-top-accent"></div>
     
     <!-- Header -->
     <div class="tools-hub-header">
@@ -10713,7 +10736,7 @@ main {
       <div class="tools-hub-header-actions">
         <span class="tools-status-badge">
           <span class="live-beacon-dot"></span>
-          <span id="toolsHubCount">12 MODULES OPERATIONAL</span>
+          <span id="toolsHubCount">12 RESEARCH MODULES CONFIGURED</span>
         </span>
         <button class="btn-close-tools" onclick="closeToolsHub()" title="Close Tools Hub (Esc)">✕</button>
       </div>
@@ -10757,7 +10780,7 @@ main {
             <div class="tool-card-title">TraceX API Diagnostics</div>
             <span class="tool-card-tag tag-cyan">7 EVAL APIs</span>
           </div>
-          <div class="tool-card-desc">Interactive Postman test suite for all 7 live APIs with real-time latency monitor.<span class="tool-card-arrow">➔</span></div>
+          <div class="tool-card-desc">Evaluation test suite for all 7 prototype APIs with latency monitor.<span class="tool-card-arrow">➔</span></div>
         </div>
       </div>
 
@@ -10796,7 +10819,7 @@ main {
             <div class="tool-card-title">V.I.N.I. Graph Core</div>
             <span class="tool-card-tag tag-green">AURA CLOUD</span>
           </div>
-          <div class="tool-card-desc">Neo4j Aura cloud multi-hop entity exploration with live Cypher query terminal.<span class="tool-card-arrow">➔</span></div>
+          <div class="tool-card-desc">Neo4j Aura cloud entity exploration with Cypher query interface.<span class="tool-card-arrow">➔</span></div>
         </div>
       </div>
 
@@ -10928,7 +10951,7 @@ main {
         </div>
       </div>
 
-      <!-- Card 11: Tactical Cyber Audio SFX -->
+      <!-- Card 11: Auditory Feedback SFX -->
       <div class="tool-card" onclick="runToolAction('audio')" data-cat="export" data-search="audio sound sfx mute toggle cyber acoustic effects chirp">
         <div class="tool-card-icon icon-cyan" id="hubAudioIcon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -10965,10 +10988,10 @@ main {
 
     </div>
 
-    <!-- Tactical Footer Bar -->
+    <!-- Footer Bar -->
     <div class="tools-hub-footer">
       <div class="tools-footer-actions">
-        <button class="btn-hub-pill" id="hubFooterAudioBtn" onclick="toggleForensicAudio()" title="Toggle live audio feedback">
+        <button class="btn-hub-pill" id="hubFooterAudioBtn" onclick="toggleForensicAudio()" title="Toggle auditory feedback">
           <span id="footerAudioIcon">🔊</span> <span id="footerAudioText">Sound FX: ON</span>
         </button>
         <button class="btn-hub-pill" onclick="runToolAction('share')" title="Copy current investigation URL">
@@ -11153,7 +11176,7 @@ main {
 
   <!-- ── PERSISTENT MODE NOTIFICATION BANNER ── -->
   <div id="modeBanner" class="mode-banner-demo">
-    <span class='status-dot status-dot-amber' style='margin-right:6px'></span> <b>SIH26182 Research Prototype (Demo Mode):</b> Preloaded evaluation benchmarks. Demo data is synthetic. Final legal action subject to authorized LEA approval.
+    <span class='status-dot status-dot-amber' style='margin-right:6px'></span> <b>Research Prototype (Synthetic Demo Data):</b> Preloaded evaluation benchmarks. Attribution outputs represent <em>probabilistic attribution</em>. All findings represent a <em>draft for review by authorized agencies</em>.
   </div>
 
   <!-- ── HERO WELCOME COMMAND CENTER ── -->
@@ -11223,7 +11246,7 @@ main {
     <div class="cyber-tabs">
       <div class="cyber-tab active" data-tab="attribution">VASP attribution <span class="tab-badge">PRIMARY</span></div>
       <div class="cyber-tab" data-tab="copilot">Prototype AI Copilot <span class="tab-badge" style="background:rgba(168,85,247,0.25);color:var(--accent-purple)">LLM-ASSISTED</span></div>
-      <div class="cyber-tab" data-tab="livedata">Live terminal <span class="tab-badge">ON-CHAIN</span></div>
+      <div class="cyber-tab" data-tab="livedata">Explorer query <span class="tab-badge">ON-CHAIN</span></div>
       <div class="cyber-tab" data-tab="path">Transaction path <span class="tab-badge">HOPS</span></div>
       <div class="cyber-tab" data-tab="risk">Risk & AML <span class="tab-badge">FATF</span></div>
       <div class="cyber-tab" data-tab="graph">Visual graph <span class="tab-badge">CANVAS</span></div>
@@ -11351,23 +11374,23 @@ main {
           </div>
           <div style="font-family:var(--font-display);font-size:1.45rem;font-weight:800;color:#fff;margin-bottom:8px">VASP Attribution & Intelligence Engine Ready</div>
           <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);max-width:580px;margin:0 auto 22px auto;line-height:1.6">
-            Execute a live on-chain forensic trace or select a preloaded sample case to initialize probabilistic VASP attribution, heuristic factor decomposition, and statutory requisition dispatching.
+            Execute an on-chain query or select a preloaded synthetic sample case to evaluate probabilistic attribution, heuristic factor decomposition, and statutory requisition dispatching.
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;max-width:960px;margin:0 auto">
             <button class="btn-cyber btn-primary-glow" onclick="loadDemoCase(0)" style="width:100%;padding:10px 14px;font-size:12px;display:flex;flex-direction:column;align-items:flex-start;gap:4px">
-              <span style="font-weight:800;color:#00e5ff">⚡ CASE 1: TASK SCAM</span>
+              <span style="font-weight:800;color:#00e5ff">CASE 1: TASK SCAM</span>
               <span style="font-size:0.68rem;color:#94a3b8">TRON USDT • 3 Mules • CoinDCX</span>
             </button>
             <button class="btn-cyber btn-ghost" onclick="loadDemoCase(1)" style="width:100%;padding:10px 14px;font-size:12px;display:flex;flex-direction:column;align-items:flex-start;gap:4px">
-              <span style="font-weight:800;color:#f59e0b">⚡ CASE 2: PEEL CHAIN</span>
+              <span style="font-weight:800;color:#f59e0b">CASE 2: PEEL CHAIN</span>
               <span style="font-size:0.68rem;color:#94a3b8">Bitcoin UTXO • 4 Hops • WazirX</span>
             </button>
             <button class="btn-cyber btn-ghost" onclick="loadDemoCase(2)" style="width:100%;padding:10px 14px;font-size:12px;display:flex;flex-direction:column;align-items:flex-start;gap:4px">
-              <span style="font-weight:800;color:#ef4444">⚡ CASE 3: MIXER POOL</span>
+              <span style="font-weight:800;color:#ef4444">CASE 3: MIXER POOL</span>
               <span style="font-size:0.68rem;color:#94a3b8">Ethereum • Tornado Cash Break</span>
             </button>
             <button class="btn-cyber btn-green-glow" onclick="loadDemoCase(3)" style="width:100%;padding:10px 14px;font-size:12px;display:flex;flex-direction:column;align-items:flex-start;gap:4px">
-              <span style="font-weight:800;color:#34d399">⚡ CASE 4: HOP-0 VERIFICATION</span>
+              <span style="font-weight:800;color:#34d399">CASE 4: HOP-0 VERIFICATION</span>
               <span style="font-size:0.68rem;color:#94a3b8">Binance Hot Wallet • Direct Label</span>
             </button>
           </div>
@@ -11384,10 +11407,10 @@ main {
           📜 Freeze Notice
         </button>
         <button class="btn-cyber btn-ghost" onclick="switchTab('graph')" title="Inspect Interactive Visual Multi-Hop Topology">
-          ⚡ Visual Graph
+          Evidence Graph
         </button>
-        <button class="btn-cyber btn-ghost" onclick="switchTab('livedata')" title="Live Satellite & On-Chain Mempool Scanner">
-          📡 Live Scan
+        <button class="btn-cyber btn-ghost" onclick="switchTab('livedata')" title="On-Chain Explorer & Mempool Query">
+          📡 Chain Query
         </button>
         <button class="btn-cyber btn-ghost" onclick="openExplorer()" title="Open Public Blockchain Explorer">
           🌐 Explorer ↗
@@ -11398,15 +11421,16 @@ main {
       </div>
     </div>
 
-    <!-- PANE 3: LIVE ON-CHAIN INTELLIGENCE TERMINAL (SATELLITE & THREAT MATRIX) -->
+    <!-- PANE 3: ON-CHAIN EXPLORER QUERY TERMINAL -->
     <div class="pane" id="pane-livedata">
+        <div class="sober-pane-disclaimer"><span class="sober-pane-disclaimer-tag">RESEARCH PROTOTYPE</span> <span>Synthetic demo data • Probabilistic attribution • Draft for review by authorized agencies</span></div>>
       <div class="hud-panel" style="margin-bottom:18px;position:relative">
         <div class="corner-accent corner-tl"></div>
         <div class="corner-accent corner-tr"></div>
         <div class="corner-accent corner-bl"></div>
         <div class="corner-accent corner-br"></div>
 
-        <!-- 1. Quantum Orbital Radar Scanner Header -->
+        <!-- 1. Explorer Scanner Header -->
         <div class="live-terminal-header">
           <div style="display:flex;align-items:center;gap:16px">
             <!-- 3D Radar & Satellite Antenna SVG -->
@@ -11455,7 +11479,7 @@ main {
               <div style="font-family:var(--font-display);font-size:1.25rem;font-weight:900;color:#fff;display:flex;align-items:center;gap:10px;letter-spacing:0.02em">
                 Real-Time On-Chain Intelligence Terminal
                 <span class="badge-cyber" style="background:rgba(6,182,212,0.15);color:var(--accent-cyan);border:1px solid rgba(6,182,212,0.4);font-size:11px;padding:3px 10px;border-radius:6px">
-                  <span class="status-dot status-dot-green pulse" style="margin-right:4px"></span> LIVE SATELLITE FEED
+                  <span class="status-dot status-dot-cyan" style="margin-right:4px"></span> EXPLORER QUERY FEED
                 </span>
               </div>
               <div style="font-size:0.78rem;color:#94a3b8;margin-top:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
@@ -11471,7 +11495,7 @@ main {
           <div style="display:flex;gap:10px">
             <button class="btn-copilot-action" id="loadLiveBtn" onclick="loadLiveData()" style="padding:9px 20px;font-size:0.8rem">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-              <span>Query Live Nodes ⚡</span>
+              <span>Query Blockchain Nodes</span>
             </button>
           </div>
         </div>
@@ -11514,10 +11538,10 @@ main {
               On-Chain Node Interrogation Standby
             </div>
             <div style="font-family:var(--font-mono);font-size:0.78rem;color:#94a3b8;max-width:580px;margin:0 auto 18px auto;line-height:1.6">
-              Execute a wallet trace or load a demo case, then click 'Query Live Nodes' to dispatch simultaneous on-chain requests to OFAC SDN Sanctions List, Chainabuse Public Fraud DB, and Blockchain Explorer RPCs.
+              Execute a trace or load a demo case, then click 'Query Blockchain Nodes' to send requests to OFAC SDN Sanctions List, Chainabuse Public Fraud DB, and Blockchain Explorer RPCs.
             </div>
             <button class="btn-copilot-action" onclick="loadLiveData()" style="padding:10px 24px;font-size:0.82rem">
-              ⚡ Dispatch Live Deep-Scan
+              Run Explorer Query
             </button>
           </div>
         </div>
@@ -11527,6 +11551,7 @@ main {
 
     <!-- PANE 4: FORENSIC TRANSACTION PATH (CHRONOLOGICAL EVIDENCE TRAIL) -->
     <div class="pane" id="pane-path">
+        <div class="sober-pane-disclaimer"><span class="sober-pane-disclaimer-tag">RESEARCH PROTOTYPE</span> <span>Synthetic demo data • Probabilistic attribution • Draft for review by authorized agencies</span></div>>
       <div class="hud-panel" style="margin-bottom:18px;position:relative">
         <div class="corner-accent corner-tl"></div>
         <div class="corner-accent corner-tr"></div>
@@ -11567,7 +11592,7 @@ main {
                   <!-- Right Link -->
                   <rect x="18" y="12" width="22" height="14" rx="7" fill="none" stroke="#c084fc" stroke-width="3"/>
                   <!-- Joint Spark Node -->
-                  <circle cx="20" cy="15" r="2" fill="#ffffff" class="chain-laser-pulse"/>
+                  <circle cx="20" cy="15" r="2" fill="#ffffff" class="chain-pulse"/>
                 </g>
               </svg>
             </div>
@@ -11689,6 +11714,7 @@ main {
 
     <!-- PANE 5: FATF RISK MATRIX & AML RED-FLAG AUDIT -->
     <div class="pane" id="pane-risk">
+        <div class="sober-pane-disclaimer"><span class="sober-pane-disclaimer-tag">RESEARCH PROTOTYPE</span> <span>Synthetic demo data • Probabilistic attribution • Draft for review by authorized agencies</span></div>>
       <div class="hud-panel" style="margin-bottom:18px;position:relative">
         <div class="corner-accent corner-tl"></div>
         <div class="corner-accent corner-tr"></div>
@@ -11908,6 +11934,7 @@ main {
 
     <!-- PANE 5: INTERACTIVE CANVAS GRAPH -->
     <div class="pane" id="pane-graph">
+        <div class="sober-pane-disclaimer"><span class="sober-pane-disclaimer-tag">RESEARCH PROTOTYPE</span> <span>Synthetic demo data • Probabilistic attribution • Draft for review by authorized agencies</span></div>>
       <div class="graph-hud">
         <div class="graph-header">
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
@@ -11929,7 +11956,7 @@ main {
         </div>
         <div class="graph-container-wrap">
           <div class="graph-toolbar">
-            <button class="graph-tool-btn" id="btnFlowToggle" onclick="toggleFlowAnimation()" title="Toggle live electric fund flow animation" style="color:var(--accent-cyan);border:1px solid rgba(6,182,212,0.35);background:rgba(6,182,212,0.1)">⚡ Flow: ON</button>
+            <button class="graph-tool-btn" id="btnFlowToggle" onclick="toggleFlowAnimation()" title="Toggle fund flow animation" style="color:var(--accent-cyan);border:1px solid rgba(6,182,212,0.35);background:rgba(6,182,212,0.1)">⚡ Flow: ON</button>
             <button class="graph-tool-btn" id="btnWheelZoom" onclick="toggleWheelZoom()" title="Toggle mouse wheel zoom on or off" style="color:#94a3b8;border:1px solid rgba(255,255,255,0.12)">🖱️ Wheel Zoom: OFF</button>
             <button class="graph-tool-btn" onclick="zoomGraph(1.2)" title="Zoom in topology view">🔍 Zoom In</button>
             <button class="graph-tool-btn" onclick="zoomGraph(0.8)" title="Zoom out topology view">🔍 Zoom Out</button>
@@ -11959,6 +11986,7 @@ main {
 
     <!-- PANE 7: STATUTORY FREEZING NOTICE & ASSET RESTRAINT DIRECTIVE [BNSS 2023 / SEC 91] -->
     <div class="pane" id="pane-notice">
+        <div class="sober-pane-disclaimer"><span class="sober-pane-disclaimer-tag">RESEARCH PROTOTYPE</span> <span>Synthetic demo data • Probabilistic attribution • Draft for review by authorized agencies</span></div>>
       <div class="hud-panel" style="margin-bottom:18px;position:relative">
         <div class="corner-accent corner-tl"></div>
         <div class="corner-accent corner-tr"></div>
@@ -11990,7 +12018,7 @@ main {
                 <!-- Outer Hexagonal Cyber Defense Shield -->
                 <polygon points="36,4 64,16 64,44 36,68 8,44 8,16" fill="url(#justiceShieldCore)" stroke="#ffd700" stroke-width="1.8" filter="url(#justiceGlow)"/>
 
-                <!-- Orbital Laser Integrity Rings -->
+                <!-- Integrity Rings -->
                 <circle cx="36" cy="36" r="28" stroke="rgba(0,229,255,0.4)" stroke-width="1" stroke-dasharray="4 6" class="notice-orbit-ring-1"/>
                 <circle cx="36" cy="36" r="22" stroke="rgba(245,158,11,0.5)" stroke-width="1" stroke-dasharray="6 8" class="notice-orbit-ring-2"/>
 
@@ -12030,7 +12058,7 @@ main {
                 <span class="pulse-indicator" style="background:#10b981;box-shadow:0 0 8px #10b981"></span>
               </div>
               <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);margin-top:2px">
-                Section 91 BNSS 2023 / Section 91 CrPC • Mandatory Asset Restraint (Sec 106 BNSS) • MHA / I4C NCRP Standard
+                Section 91 BNSS 2023 / Section 91 CrPC • Statutory Asset Restraint Directive (Sec 106 BNSS Draft) • MHA / I4C NCRP Standard
               </div>
               <div class="notice-badge-strip">
                 <span class="notice-badge mandate">⚖️ Draft Statutory Directive (Subject to IO Approval)</span>
@@ -12105,9 +12133,9 @@ main {
           <div class="corner-accent corner-bl"></div>
           <div class="corner-accent corner-br"></div>
 
-          <!-- Tactical Preset Buttons -->
+          <!-- Preset Query Buttons -->
           <div class="notice-presets-bar">
-            <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);margin-right:6px">⚡ INVESTIGATIVE PRESETS:</span>
+            <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);margin-right:6px">PRESET QUERIES:</span>
             <button class="notice-preset-pill active" onclick="applyNoticePreset('fir247')">
               <span>🏛️</span> FIR No. 247/2024 (Pune Cyber)
             </button>
@@ -12203,6 +12231,7 @@ main {
     </div>
     <!-- PANE 8: LEA NATIONAL CYBER FORENSICS TELEMETRY COMMAND DECK -->
     <div class="pane" id="pane-analytics">
+        <div class="sober-pane-disclaimer"><span class="sober-pane-disclaimer-tag">RESEARCH PROTOTYPE</span> <span>Synthetic demo data • Probabilistic attribution • Draft for review by authorized agencies</span></div>>
       <div class="hud-panel" style="margin-bottom:18px;position:relative">
         <div class="corner-accent corner-tl"></div>
         <div class="corner-accent corner-tr"></div>
@@ -12267,7 +12296,7 @@ main {
                 National Cyber Crime Reporting Portal (NCRP) • I4C / MHA PS-26182 Benchmark • Real-Time VASP Interceptions
               </div>
               <div class="analytics-badge-strip">
-                <span class="analytics-badge live">🟢 Live Stream</span>
+                <span class="analytics-badge live">🟢 Query Stream</span>
                 <span class="analytics-badge ncrp">🇮🇳 I4C NCRP Federated</span>
                 <span class="analytics-badge bsa">⚖️ BSA Sec 65B Certified</span>
               </div>
@@ -12303,7 +12332,7 @@ main {
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:10px">
-            <span class="analytics-badge live" style="font-size:0.65rem">● Telemetry Stream Active (120ms)</span>
+            <span class="analytics-badge live" style="font-size:0.65rem">● Telemetry Feed Active (120ms)</span>
           </div>
         </div>
 
@@ -12411,7 +12440,7 @@ main {
               <span style="font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px">
                 <span>📈</span> 24-Hour National Cyber Crime Influx & VASP Attribution Velocity
               </span>
-              <span class="trend-tag cyan">LIVE REFRESH</span>
+              <span class="trend-tag cyan">INDEX REFRESH</span>
             </div>
             <div class="wave-legend">
               <div class="wave-legend-item">
@@ -12431,7 +12460,7 @@ main {
           <div id="analyticsWaveChart"></div>
         </div>
 
-        <!-- 5. Dual Tactical Charts Row -->
+        <!-- 5. Analytical Charts Row -->
         <div class="analytics-charts-deck">
           <!-- Left: Top Attributed VASPs Leaderboard -->
           <div class="analytics-chart-panel">
@@ -12571,6 +12600,7 @@ main {
     </div>
     <!-- PANE 2: PROTOTYPE AI COPILOT (LLM-ASSISTED REASONING & FORENSIC NERVE CENTER) -->
     <div class="pane" id="pane-copilot">
+        <div class="sober-pane-disclaimer"><span class="sober-pane-disclaimer-tag">RESEARCH PROTOTYPE</span> <span>Synthetic demo data • Probabilistic attribution • Draft for review by authorized agencies</span></div>>
       <div class="hud-panel" style="margin-bottom:18px;position:relative">
         <div class="corner-accent corner-tl"></div>
         <div class="corner-accent corner-tr"></div>
@@ -12791,7 +12821,7 @@ main {
                 Forensic Intelligence Engine Ready
               </div>
               <div style="font-family:var(--font-mono);font-size:0.75rem;color:#94a3b8;max-width:560px;margin:0 auto 16px auto;line-height:1.5">
-                Execute a live on-chain forensic trace or load a demo case, then click below to synthesize a multi-hop crime briefing, VASP isolation rationale, and statutory next steps.
+                Execute an on-chain query or load a demo case, then click below to synthesize a multi-hop crime briefing, VASP isolation rationale, and statutory next steps.
               </div>
               <button class="btn-copilot-action" onclick="generateAiSummary()" style="padding:10px 24px;font-size:0.8rem">
                 ⚡ Synthesize Executive Briefing
@@ -12819,10 +12849,10 @@ main {
           </div>
         </div>
 
-        <!-- 4. Tactical Investigation Prompt Command Grid (5 Handcrafted 3D Isometric Cards) -->
+        <!-- 4. Investigative Query Grid (5 Handcrafted 3D Isometric Cards) -->
         <div style="margin-bottom:12px;display:flex;justify-content:space-between;align-items:center">
           <span style="font-family:var(--font-mono);font-size:0.72rem;font-weight:700;color:#94a3b8;letter-spacing:0.08em;text-transform:uppercase">
-            ⚡ FORENSIC INQUIRY MATRIX (CLICK TO EXECUTE)
+            INVESTIGATIVE INQUIRY PRESETS (CLICK TO SELECT)
           </span>
           <span style="font-family:var(--font-mono);font-size:0.68rem;color:#c084fc">
             Prototype AI Copilot (LLM-Assisted Multi-Provider Reasoning)
@@ -12868,7 +12898,7 @@ main {
               </div>
               <div class="cpc-title">BNSS Legal Next Steps</div>
             </div>
-            <div class="cpc-desc">Mandatory statutory preservation directives for IO under BNSS 2023 & PMLA.</div>
+            <div class="cpc-desc">Draft statutory preservation directives for review under BNSS 2023 & PMLA.</div>
             <div class="cpc-footer">
               <span style="color:#34d399">LEGAL ROADMAP</span>
               <span style="color:#34d399">➔</span>
@@ -12935,7 +12965,7 @@ main {
             </div>
             <input type="text" id="copilotInput" class="copilot-input-box" placeholder="Ask Prototype AI Copilot (LLM-Assisted Reasoning) about this wallet, transaction hops, FATF red flags, or draft requisitions..." onkeydown="if(event.key==='Enter')sendCopilotMsg()" />
             <button class="btn-cyber btn-primary-glow" id="copilotSendBtn" onclick="sendCopilotMsg()" style="width:auto;padding:8px 22px;font-size:0.78rem;font-weight:800;letter-spacing:0.06em">
-              EXECUTE ⚡
+              SUBMIT QUERY
             </button>
           </div>
         </div>
@@ -13377,7 +13407,7 @@ A formal directive is synthesized for dispatch to **${v.name}**:
 
 1. **Directive Type:** Urgent Debit Freeze & KYC Disclosure
 2. **Statutory Reference:** Section 91 Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 r/w PMLA 2002
-3. **Mandatory Production Items:**
+3. **Requested Information Items (Draft):**
    * Full KYC records (Aadhaar, PAN, Video KYC, Mobile & Email).
    * Complete login IP audit trail & device MAC hashes for past 90 days.
    * Linked bank accounts, IFSC & UPI transaction journals.
@@ -13967,7 +13997,7 @@ FORENSIC SHA-256   : ${prov.evidence_hash || 'SHA256-AUTHENTICATED'}
 
 3. STATUTORY REQUISITION DIRECTIVE:
    - Authority : Section 91 Bharatiya Nagarik Suraksha Sanhita, 2023 (BNSS)
-   - Restraint : Section 106 BNSS / Section 102 CrPC (Mandatory Immediate Debit Freeze)
+   - Restraint : Section 106 BNSS / Section 102 CrPC (Draft Debit Restraint Directive)
    - Status    : Formal disclosure command synthesized & ready for electronic transmission.
 ================================================================================`;
 
@@ -14074,7 +14104,7 @@ From: ${officer}, Law Enforcement Agency / I4C Cyber Crime Cell
 Ref Case: ${caseId}
 Date: ${new Date().toLocaleDateString('en-IN')}
 
-SUBJECT: MANDATORY PRODUCTION OF SUBSCRIBER RECORDS & IMMEDIATE ASSET FREEZE
+SUBJECT: STATUTORY REQUISITION FOR PRODUCTION OF SUBSCRIBER RECORDS & ASSET RESTRAINT (DRAFT FOR REVIEW)
 
 WHEREAS an investigation under Indian Law establishes illicit crypto transfer routed to your exchange infrastructure.
 Target Wallet Address: ${addr} (${chain})
@@ -14191,7 +14221,7 @@ YOU ARE DIRECTED TO IMMEDIATELY:
     <div class="diag-grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:10px;margin-bottom:16px">
       <div class="diag-item" style="padding:10px 12px">
         <div class="diag-label">Instance Status</div>
-        <div class="diag-val green" id="neo4jStatusVal">🟢 CONNECTED [LIVE]</div>
+        <div class="diag-val green" id="neo4jStatusVal">🟢 CONNECTED [ACTIVE]</div>
       </div>
       <div class="diag-item" style="padding:10px 12px">
         <div class="diag-label">Cloud Nodes</div>
@@ -14210,7 +14240,7 @@ YOU ARE DIRECTED TO IMMEDIATELY:
     <!-- Forensic Cypher Presets -->
     <div style="margin-bottom:12px">
       <div style="font-family:var(--font-mono);font-size:0.7rem;font-weight:800;color:#94a3b8;margin-bottom:6px;letter-spacing:0.5px">
-        ⚡ INVESTIGATIVE CYPHER PRESETS (CLICK TO EXECUTE):
+        INVESTIGATIVE QUERY PRESETS (CLICK TO EXECUTE):
       </div>
       <div style="display:flex;gap:6px;flex-wrap:wrap">
         <button class="node-inspect-btn" onclick="setCypherQuery('MATCH (v:VASP) RETURN v.name AS Exchange, v.country AS Jurisdiction, v.vasp_type AS Type')" style="font-size:10.5px">
@@ -14254,7 +14284,7 @@ YOU ARE DIRECTED TO IMMEDIATELY:
       </div>
       <div id="cypherResultsContainer" style="overflow-x:auto">
         <div style="text-align:center;padding:24px;color:#64748b;font-family:var(--font-mono);font-size:0.75rem">
-          Click "Execute Cypher" to query the live Neo4j Aura cloud database.
+          Click "Execute Cypher" to query the Neo4j Aura cloud database.
         </div>
       </div>
     </div>
@@ -14331,23 +14361,23 @@ async function loadDemoCases() {
       const seizableInr = c.amount_lost_inr ? `₹ ${(c.amount_lost_inr / 100000).toFixed(1)}L` : '₹ 4.8L';
       const cryptoAmount = c.amount_crypto ? `${c.amount_crypto} ${c.asset || ''}` : '';
       return `
-        <div class="tactical-case-card" id="caseCard-${i}" onclick="loadDemoCase(${i})" title="Click to load ${c.case_id} into attribution engine">
-          <div class="tactical-case-header">
+        <div class="case-dossier-card" id="caseCard-${i}" onclick="loadDemoCase(${i})" title="Click to load ${c.case_id} into attribution engine">
+          <div class="case-dossier-header">
             <div style="display:flex;align-items:center;gap:6px">
-              <span class="tactical-case-id">${c.case_id}</span>
+              <span class="case-dossier-id">${c.case_id}</span>
               <span class="active-tag"><span class="status-dot status-dot-green pulse"></span> ACTIVE</span>
             </div>
-            <span class="tactical-case-risk ${riskClass}">${riskLabel}</span>
+            <span class="case-dossier-risk ${riskClass}">${riskLabel}</span>
           </div>
-          <div class="tactical-case-title">
+          <div class="case-dossier-title">
             <span style="font-size:0.75rem;color:var(--accent-cyan);font-family:var(--font-mono)">${chainBadge}</span> • ${c.title}
           </div>
-          <div class="tactical-case-desc">${c.description}</div>
-          <div class="tactical-case-meta">
-            <span class="tactical-case-asset-pill">💰 ${seizableInr} (${cryptoAmount})</span>
-            ${(c.tags || []).slice(0, 2).map(t => `<span class="tactical-case-pill">${t}</span>`).join('')}
+          <div class="case-dossier-desc">${c.description}</div>
+          <div class="case-dossier-meta">
+            <span class="case-dossier-asset-pill">💰 ${seizableInr} (${cryptoAmount})</span>
+            ${(c.tags || []).slice(0, 2).map(t => `<span class="case-dossier-pill">${t}</span>`).join('')}
           </div>
-          <div class="tactical-case-actions">
+          <div class="case-dossier-actions">
             <button type="button" class="btn-case-action" onclick="event.stopPropagation();loadDemoCase(${i})">
               <span>⚡</span> Load Trace
             </button>
@@ -14410,11 +14440,11 @@ async function testAllApis() {
     hasTestedApis = true;
 
     if (badge) {
-      badge.textContent = `🟢 ${data.summary.live_apis}/${data.summary.total_apis} OPERATIONAL (${data.summary.total_latency_ms}ms)`;
+      badge.textContent = `🟢 ${data.summary.live_apis || 7}/${data.summary.total_apis || 7} CONFIGURED (${data.summary.total_latency_ms}ms)`;
       badge.className = data.summary.all_operational ? 'postman-badge method-get' : 'postman-badge method-post';
     }
     const topbarCount = document.getElementById('topbarApiCount');
-    if (topbarCount) topbarCount.textContent = `${data.summary.live_apis}/${data.summary.total_apis} APIS LIVE`;
+    if (topbarCount) topbarCount.textContent = `${data.summary.live_apis}/${data.summary.total_apis} APIS CONFIGURED`;
 
     const apis = data.apis || {};
     container.innerHTML = Object.keys(apis).map(apiId => renderApiCard(apiId, apis[apiId])).join('');
@@ -15136,18 +15166,18 @@ function updateModeUI() {
   if (currentMode === 'live') {
     if (pill) pill.classList.add('live-mode');
     if (dot) dot.className = 'status-dot status-dot-green';
-    if (text) text.textContent = 'MODE: LIVE ON-CHAIN';
+    if (text) text.textContent = 'MODE: DIRECT QUERY';
     if (banner) {
       banner.className = 'mode-banner-live';
-      banner.innerHTML = '<span class="status-dot status-dot-green" style="margin-right:6px"></span> <b>Live on-chain mode active:</b> Querying real blockchain explorers directly without synthetic fallbacks.';
+      banner.innerHTML = '<span class="status-dot status-dot-green" style="margin-right:6px"></span> <b>Direct query mode active:</b> Querying blockchain indexers directly. Attribution outputs are probabilistic attribution and represent a draft for review by authorized agencies.';
     }
   } else {
     if (pill) pill.classList.remove('live-mode');
     if (dot) dot.className = 'status-dot status-dot-amber';
-    if (text) text.textContent = 'MODE: DEMO BENCHMARK';
+    if (text) text.textContent = 'MODE: SYNTHETIC DEMO';
     if (banner) {
       banner.className = 'mode-banner-demo';
-      banner.innerHTML = '<span class="status-dot status-dot-amber" style="margin-right:6px"></span> <b>SIH26182 Research Prototype (Demo Mode):</b> Preloaded evaluation benchmarks. Demo data is synthetic. Final legal action subject to authorized LEA approval.';
+      banner.innerHTML = '<span class="status-dot status-dot-amber" style="margin-right:6px"></span> <b>Research Prototype (Synthetic Demo Data):</b> Preloaded evaluation benchmarks. Attribution is probabilistic attribution. Outputs represent a draft for review by authorized agencies.';
     }
   }
 }
@@ -15187,7 +15217,7 @@ async function loadHistoryItem(id) {
 }
 
 async function loadDemoCase(idx) {
-  document.querySelectorAll('.tactical-case-card').forEach((card, i) => {
+  document.querySelectorAll('.case-dossier-card').forEach((card, i) => {
     card.classList.toggle('active', i === idx);
   });
   const io = document.getElementById('ioName').value || 'Analyst LEA-701';
@@ -15372,7 +15402,7 @@ function getAnalyticsData() {
       { time: "12:00", influx: 48, attr: 44, freezes: 36 },
       { time: "16:00", influx: 62, attr: 58, freezes: 45 },
       { time: "20:00", influx: 70, attr: 65, freezes: 50 },
-      { time: "LIVE", influx: 74, attr: 68, freezes: 52 }
+      { time: "INDEX", influx: 74, attr: 68, freezes: 52 }
     ]
   };
   localStorage.setItem('tracex_lea_analytics', JSON.stringify(initial));
@@ -15467,7 +15497,7 @@ function injectHighVolumeBenchmark() {
     { time: "12:00", influx: 96, attr: 88, freezes: 72 },
     { time: "16:00", influx: 124, attr: 116, freezes: 90 },
     { time: "20:00", influx: 140, attr: 130, freezes: 100 },
-    { time: "LIVE", influx: 148, attr: 136, freezes: 104 }
+    { time: "INDEX", influx: 148, attr: 136, freezes: 104 }
   ];
   localStorage.setItem('tracex_lea_analytics', JSON.stringify(an));
   renderLeaAnalytics();
@@ -15551,7 +15581,7 @@ function renderAnalyticsWaveChart(waveData) {
     { time: "12:00", influx: 48, attr: 44, freezes: 36 },
     { time: "16:00", influx: 62, attr: 58, freezes: 45 },
     { time: "20:00", influx: 70, attr: 65, freezes: 50 },
-    { time: "LIVE", influx: 74, attr: 68, freezes: 52 }
+    { time: "INDEX", influx: 74, attr: 68, freezes: 52 }
   ];
 
   const w = 700;
@@ -16035,7 +16065,7 @@ function renderRiskPane(data) {
 
   const elFreezeQual = document.getElementById('fatfFreezeQualVal');
   if (elFreezeQual) {
-    elFreezeQual.textContent = riskScore >= 50 ? 'Mandatory Freeze (Sec 106)' : 'Advisory Surveillance';
+    elFreezeQual.textContent = riskScore >= 50 ? 'Statutory Restraint (Draft)' : 'Advisory Review';
     elFreezeQual.style.color = riskScore >= 50 ? '#ef4444' : '#34d399';
   }
 
@@ -16174,7 +16204,7 @@ function renderRiskPane(data) {
               </div>
             </div>
             <button class="analytics-btn primary" onclick="loadDemoCase(0)" style="font-size:0.7rem;padding:4px 10px">
-              ⚡ Execute Live Trace
+              Run Trace Evaluation
             </button>
           </div>
         `;
@@ -16304,7 +16334,7 @@ function filterPathHops(type) {
     }
   });
 
-  const cards = document.querySelectorAll('.tactical-hop-card');
+  const cards = document.querySelectorAll('.hop-evidence-card');
   const conduits = document.querySelectorAll('.hop-conduit-strip');
   
   cards.forEach(c => {
@@ -16327,7 +16357,7 @@ function filterPathHops(type) {
 
 function inspectHopInTerminal(address, chain) {
   switchTab('livedata');
-  showToast(`🔍 Interrogating Node ${address.slice(0, 8)}... in Live Satellite Terminal`, 'info');
+  showToast(`🔍 Interrogating Node ${address.slice(0, 8)}... in Explorer Terminal`, 'info');
   setTimeout(() => {
     if (typeof loadLiveData === 'function') loadLiveData();
   }, 300);
@@ -16461,12 +16491,12 @@ function renderPathPane(data) {
               DEMO EVIDENCE TRAIL: CASE 1 (FIR 247/24 - TELEGRAM TASK SCAM)
             </div>
             <div style="font-family:var(--font-mono);font-size:0.68rem;color:#94a3b8">
-              Displaying standard certified multi-hop route. Initiate any live trace to dynamically plot suspect conduit.
+              Displaying standard certified multi-hop route. Initiate a query to plot suspect conduit.
             </div>
           </div>
         </div>
         <button class="analytics-btn primary" onclick="loadDemoCase(0)" style="font-size:0.72rem;padding:5px 12px">
-          ⚡ Execute Live Trace
+          Run Trace Evaluation
         </button>
       </div>
     `;
@@ -16542,9 +16572,9 @@ function renderPathPane(data) {
 
     const formattedCardAmt = formatHopAmount(n.amount || '50,000', traceData.asset);
 
-    // Tactical Hop Card
+    // Hop Evidence Card
     html += `
-      <div class="tactical-hop-card" data-hop-type="${hopTypeAttr}">
+      <div class="hop-evidence-card" data-hop-type="${hopTypeAttr}">
         <div class="corner-accent corner-tl"></div>
         <div class="corner-accent corner-tr"></div>
         <div class="corner-accent corner-bl"></div>
@@ -16613,7 +16643,7 @@ function renderPathPane(data) {
           <div class="thc-actions-bar">
             <button class="thc-act-btn primary" onclick="inspectHopInTerminal('${n.address}', '${traceData.chain || 'ETH'}')">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              <span>Inspect in Live Terminal</span>
+              <span>Inspect in Explorer Terminal</span>
             </button>
             <button class="thc-act-btn green" onclick="addHopToNotice('${n.address}')">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
@@ -17109,7 +17139,7 @@ function renderResults(data) {
       </div>
     </div>
 
-    <!-- Golden Hour Preservation Urgency Alert (Tactical Amber/Crimson Bar) -->
+    <!-- Golden Hour Preservation Urgency Alert (Alert Bar) -->
     <div class="vasp-urgency-banner">
       <div class="vub-left">
         <span class="status-dot status-dot-red pulse"></span>
@@ -17201,7 +17231,7 @@ function renderResults(data) {
       </div>
     </div>
 
-    <!-- Primary Action: SAHYOG Gateway Tactical Dispatch Button -->
+    <!-- Primary Action: SAHYOG Gateway Dispatch Directive Button -->
     <div class="sahyog-dispatch-container">
       <button class="btn-sahyog-primary" onclick="openSahyogModal()">
         <div class="bsp-glow-sweep"></div>
@@ -17287,7 +17317,7 @@ function renderResults(data) {
     ${typoHtml}
     ${mlatHtml}
 
-    <!-- Tactical Forensic Telemetry Grid (Elevated with Handcrafted 3D Isometric Neon Vectors) -->
+    <!-- Forensic Telemetry Grid (Elevated with Handcrafted 3D Isometric Neon Vectors) -->
     <div class="hud-grid" style="margin-top:16px">
       <!-- 1. Target Deposit Wallet -->
       <div class="hud-cell" style="display:flex;flex-direction:column;justify-content:space-between">
@@ -17402,7 +17432,7 @@ function renderResults(data) {
             ${getIsometricShieldSvg()}
             <span class="hc-title">STATUTORY FREEZE AUTHORITY</span>
           </div>
-          <span class="hc-badge hc-badge-red">MANDATORY IO POWER</span>
+          <span class="hc-badge hc-badge-amber">STATUTORY PROVISION (DRAFT)</span>
         </div>
         <div class="hc-value warn contrast-amber" style="font-size:13px;line-height:1.5">
           ${v.freeze_authority || 'Section 91 BNSS 2023 / Section 5 PMLA'}
@@ -17608,7 +17638,7 @@ function drawGraph() {
 
   const cy = H / 2;
 
-  // 1. Cyber Tactical Background Gradient
+  // 1. Subdued Background Gradient
   const bgGrad = ctx.createRadialGradient(W / 2, cy, 40, W / 2, cy, Math.max(W, H) * 0.75);
   bgGrad.addColorStop(0, '#090e24');
   bgGrad.addColorStop(0.6, '#050817');
@@ -17671,7 +17701,7 @@ function drawGraph() {
     }
   }
 
-  // 4. Tactical Border Brackets [ ]
+  // 4. Border Brackets [ ]
   ctx.strokeStyle = 'rgba(56, 189, 248, 0.35)';
   ctx.lineWidth = 1.5;
   const cornerLen = 14;
@@ -18363,7 +18393,7 @@ async function loadLiveData() {
   container.innerHTML = `
     <div style="text-align:center;padding:40px;color:var(--text-muted)">
       <div class="cyber-radar" style="margin:auto;margin-bottom:16px"></div>
-      <div>Dispatching live queries to PublicAML, Chainabuse, and Explorer nodes...</div>
+      <div>Dispatching queries to PublicAML, Chainabuse, and Explorer nodes...</div>
     </div>
   `;
 
@@ -18374,7 +18404,7 @@ async function loadLiveData() {
   } catch (e) {
     container.innerHTML = `<div style="color:var(--accent-danger);padding:20px">❌ Query Failed: ${e.message}</div>`;
   } finally {
-    btn.textContent = '🔄 Refresh Live Data';
+    btn.textContent = '🔄 Refresh Query Data';
     btn.disabled = false;
   }
 }
@@ -18392,7 +18422,7 @@ function renderLiveData(data) {
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:8px">
           <div style="font-family:var(--font-mono);font-size:0.75rem;color:var(--accent-cyan);font-weight:700;display:flex;align-items:center;gap:6px">
             <span class="status-dot status-dot-cyan pulse"></span>
-            <span>RECENT ON-CHAIN TRANSACTIONS [${bc.api || 'LIVE EXPLORER'}]</span>
+            <span>RECENT ON-CHAIN TRANSACTIONS [${bc.api || 'EXPLORER FEED'}]</span>
           </div>
           <span style="font-family:var(--font-mono);font-size:0.65rem;color:#94a3b8">${bc.recent_txs.length} Confirmed Records</span>
         </div>
@@ -18475,7 +18505,7 @@ function renderLiveData(data) {
             <span>OFAC SLS SANCTIONS SCREENING</span>
           </div>
           <span style="font-family:var(--font-mono);font-size:0.68rem;padding:2px 8px;border-radius:4px;background:${amlCol}22;color:${amlCol};border:1px solid ${amlCol}55;font-weight:700">
-            ${aml.source || 'LIVE US TREASURY'}
+            ${aml.source || 'US TREASURY SANCTIONS INDEX'}
           </span>
         </div>
         <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px">
@@ -18529,7 +18559,7 @@ function renderLiveData(data) {
       <div class="vault-header">
         <div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:#fff;display:flex;align-items:center;gap:10px">
           ${getIsometricCoinStackSvg()}
-          <span>ON-CHAIN ASSET VAULT & LIVE RPC METRICS — [${bc.api || 'EXPLORER RPC'}]</span>
+          <span>ON-CHAIN ASSET DATA & RPC METRICS — [${bc.api || 'EXPLORER RPC'}]</span>
         </div>
         ${bc.explorer_url ? `<a href="${bc.explorer_url}" target="_blank" style="font-family:var(--font-mono);font-size:0.72rem;color:var(--accent-cyan);text-decoration:none;font-weight:700">Open Node Explorer ↗</a>` : ''}
       </div>
@@ -18712,7 +18742,7 @@ async function generateNotice(silent = false) {
   let mandatesText = '';
   let mandateIndex = 1;
   if (chkKyc) {
-    mandatesText += `  ${mandateIndex++}. MANDATORY PRODUCTION OF SUBSCRIBER IDENTIFICATION (KYC):\n` +
+    mandatesText += `  ${mandateIndex++}. REQUEST FOR PRODUCTION OF SUBSCRIBER IDENTIFICATION (KYC):\n` +
       `     Furnish complete certified copies of all Know-Your-Customer (KYC) documents\n` +
       `     associated with beneficiary accounts linked to Deposit Address [${addr}],\n` +
       `     including Government Photo ID (Aadhaar / PAN / Passport), verified phone number,\n` +
@@ -18758,7 +18788,7 @@ TO:
   STATUTORY NODAL EMAIL  : ${email}
 ----------------------------------------------------------------------------------------------------
 
-SUBJECT: STATUTORY REQUISITION FOR MANDATORY PRODUCTION OF SUBSCRIBER KYC RECORDS, 
+SUBJECT: STATUTORY REQUISITION FOR PRODUCTION OF SUBSCRIBER KYC RECORDS (DRAFT FOR REVIEW BY AUTHORIZED AGENCIES), 
          SESSION AUDIT LOGS, AND IMMEDIATE FREEZE OF DIGITAL ASSETS UNDER SEC 106 BNSS.
 
 Sir / Madam,
@@ -19145,7 +19175,7 @@ async function sendCopilotMsg() {
 
   const now = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
-  // 1. Append IO User Bubble with Tactical Styling
+  // 1. Append IO User Bubble with Subdued Styling
   const userBubble = document.createElement('div');
   userBubble.className = 'chat-bubble-io';
   userBubble.innerHTML = `
@@ -19232,7 +19262,7 @@ async function sendCopilotMsg() {
       <div style="color:#f43f5e;font-size:0.82rem;padding:8px 0">Failed to connect to reasoning provider: ${e.message}</div>
     `;
   } finally {
-    if (btn) { btn.disabled = false; btn.innerHTML = 'EXECUTE ⚡'; }
+    if (btn) { btn.disabled = false; btn.innerHTML = 'SUBMIT QUERY'; }
   }
 }
 
@@ -19616,7 +19646,7 @@ async function syncCurrentTraceToNeo4j() {
 }
 
 
-// ─── COMMAND DOCK DROPDOWN & TACTICAL UTILITIES ─────────────────────────────
+// ─── COMMAND DOCK DROPDOWN & FORENSIC UTILITIES ─────────────────────────────
 window.forensicAudioEnabled = (localStorage.getItem('tracex_audio_enabled') !== 'false');
 
 function toggleCommandMenu(event) {
@@ -19715,7 +19745,7 @@ function updateAudioUiState() {
       hubIcon.textContent = '🔊';
       hubBadge.textContent = 'ON';
       hubBadge.className = 'tool-card-tag tag-cyan';
-      if (hubDesc) hubDesc.textContent = 'Live sound feedback active for telemetry & actions (click to mute)';
+      if (hubDesc) hubDesc.textContent = 'Auditory feedback active for telemetry & actions (click to mute)';
     } else {
       hubIcon.textContent = '🔇';
       hubBadge.textContent = 'MUTED';
@@ -19731,7 +19761,7 @@ function updateAudioUiState() {
       icon.textContent = '🔊';
       badge.textContent = 'ON';
       badge.className = 'item-tag tag-cyan';
-      if (desc) desc.textContent = 'Live sound feedback active for telemetry & actions';
+      if (desc) desc.textContent = 'Auditory feedback active for telemetry & actions';
     } else {
       icon.textContent = '🔇';
       badge.textContent = 'MUTED';
@@ -19833,7 +19863,7 @@ function applyToolsFilters() {
     } else if (cat !== 'all') {
       countBadge.textContent = `${visibleCount} MODULES SHOWN`;
     } else {
-      countBadge.textContent = '12 MODULES OPERATIONAL';
+      countBadge.textContent = '12 RESEARCH MODULES CONFIGURED';
     }
   }
 }
@@ -20012,7 +20042,7 @@ document.addEventListener('keydown', function(e) {
       </div>
     </div>
 
-    <!-- Live Transmission Security Telemetry -->
+    <!-- Transmission Security Telemetry -->
     <div class="sahyog-status-banner" style="background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.22);border-radius:10px;padding:10px 16px;margin-bottom:18px">
       <div style="display:flex;align-items:center;gap:10px;font-size:0.75rem">
         <span style="color:#00e5ff;font-weight:700">🔒 TLS 1.3 End-to-End Cryptographic Tunnel</span>

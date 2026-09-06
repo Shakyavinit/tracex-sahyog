@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Live Web App](https://img.shields.io/badge/Live%20Demo-24%2F7%20Active-00e5ff?style=for-the-badge&logo=googlechrome&logoColor=white)](https://shakyavinit.github.io/tracex-sahyog/)
+[![Web Evaluation](https://img.shields.io/badge/Prototype%20Demo-Active-0284c7?style=for-the-badge&logo=googlechrome&logoColor=white)](https://shakyavinit.github.io/tracex-sahyog/)
 [![Problem Statement](https://img.shields.io/badge/MHA%20%2F%20I4C-PS--26182-10b981?style=for-the-badge&logo=shield&logoColor=white)](https://shakyavinit.github.io/tracex-sahyog/)
 [![Research Prototype](https://img.shields.io/badge/Status-Research%20Prototype-f59e0b?style=for-the-badge&logo=codeforces&logoColor=white)](https://shakyavinit.github.io/tracex-sahyog/)
 [![Backend](https://img.shields.io/badge/Backend-FastAPI%20%7C%20Python%203.11-38bdf8?style=for-the-badge&logo=python&logoColor=white)](https://fastapi.tiangolo.com)
@@ -13,19 +13,19 @@
 *Research Prototype developed for Smart India Hackathon (Problem Statement ID: SIH26182)*  
 *Aligned with Ministry of Home Affairs (MHA) | Indian Cyber Crime Coordination Centre (I4C) SAHYOG Specifications*
 
-[🌐 Launch Live Prototype (24/7 Demo)](https://shakyavinit.github.io/tracex-sahyog/) • [📋 System Report](PROJECT_REPORT_PS26182.md) • [⚡ Team Pitch](TEAM_PITCH_SUMMARY.md)
+[🌐 Launch Research Prototype Evaluation Suite](https://shakyavinit.github.io/tracex-sahyog/) • [📋 System Report](PROJECT_REPORT_PS26182.md) • [⚡ Team Pitch](TEAM_PITCH_SUMMARY.md)
 
 </div>
 
 ---
 
 > [!IMPORTANT]
-> ### ⚠️ RESEARCH PROTOTYPE & DEMO DATA DISCLAIMER
-> **Notice for Evaluators and Law Enforcement:**
-> 1. **Research Prototype**: TraceX Sahyog is a research and evaluation prototype developed for Smart India Hackathon (PS-26182).
-> 2. **Synthetic Demo Data**: All preloaded sample cases, wallet addresses, transaction hashes, and financial metrics are *synthetic benchmark simulations*. No real complainant, suspect KYC, or restricted police intelligence data is utilized.
-> 3. **Probabilistic Heuristics**: On-chain attribution outputs and clustering scores represent *probabilistic leads* based on heuristic graph analysis, not absolute mathematical proof.
-> 4. **Mandatory Human Sign-Off**: TraceX is strictly an *investigative decision-support system*. Any draft Section 91 notice, asset requisition, or judicial filing is subject to mandatory review, verification, and authorized dispatch by an accredited Investigating Officer (IO).
+> ### ⚠️ RESEARCH PROTOTYPE & EVALUATION DISCLAIMER
+> **Notice for Evaluators and Reviewing Authorities:**
+> 1. **Research Prototype**: TraceX Sahyog is an academic research prototype developed for Smart India Hackathon (Problem Statement ID: SIH26182).
+> 2. **Synthetic Demo Data**: All preloaded benchmark scenarios, addresses, transaction hashes, and figures utilize *synthetic demo data*. No actual complainant, suspect KYC, or restricted law enforcement intelligence data is utilized.
+> 3. **Probabilistic Attribution**: On-chain clustering outputs and VASP identification represent *probabilistic attribution* based on graph heuristics, not deterministic mathematical proof.
+> 4. **Draft for Review by Authorized Agencies**: TraceX is designed strictly as an investigative decision-support system. All generated Section 91 directives, dossiers, and evidence summaries represent a *draft for review by authorized agencies*. Final action requires formal verification and authorized dispatch by accredited officials.
 
 ---
 
@@ -77,7 +77,7 @@ TraceX structures blockchain forensics into an intuitive, legally grounded 6-sta
 [5. Supporting Cryptographic Evidence & FATF Typology Tags]
        │
        ▼
-[6. Mandatory Investigating Officer (IO) Review & Authorization]
+[6. Investigating Officer (IO) Review & Authorization Required]
 ```
 
 1. **Step 01 — Case Intake**: Input suspect cryptocurrency address; automated regex detection identifies network (Bitcoin, Ethereum, TRON, Solana).
@@ -85,7 +85,7 @@ TraceX structures blockchain forensics into an intuitive, legally grounded 6-sta
 3. **Step 03 — VASP Match**: Algorithmic clustering identifies the most probable regulated centralized exchange deposit gateway.
 4. **Step 04 — Confidence Score**: Generates a calibrated probabilistic confidence rating (e.g., 74% Medium-High) with heuristic factor decomposition.
 5. **Step 05 — Supporting Evidence**: Assembles cryptographic transaction hashes, chronological hop timestamps, and FATF AML red flag indicators.
-6. **Step 06 — IO Approval Required**: Prepares the draft Section 91 BNSS requisition for mandatory review, verification, and formal sign-off by the human officer.
+6. **Step 06 — IO Approval Required**: Prepares the draft Section 91 BNSS requisition for formal review by authorized agencies, verification, and formal sign-off by the human officer.
 
 ---
 
@@ -120,9 +120,9 @@ TraceX structures blockchain forensics into an intuitive, legally grounded 6-sta
 
 ## ⚠️ System Limitations & Grounded Technical Realities
 
-To maintain scientific credibility and prevent false expectations, TraceX explicitly documents its operational boundaries:
+To maintain scientific credibility and prevent false expectations, TraceX explicitly documents its research boundaries:
 
-| Limitation Area | Technical Reality & Operational Boundary | Mitigation / Investigator Requirement |
+| Limitation Area | Technical Reality & Research Boundary | Mitigation / Investigator Requirement |
 | :--- | :--- | :--- |
 | **Probabilistic Attribution** | On-chain clustering heuristics identify the *most probable* exchange gateway. It does not constitute internal exchange ledger access. | Conclusive legal attribution requires formal confirmation from the recipient VASP via Section 91 notice. |
 | **Upstream API Dependencies** | The prototype queries public and developer-tier RPC indexers (Etherscan, TronGrid, Esplora). High query volumes may encounter rate limits. | Production deployments require dedicated, sovereign MHA archival full-node clusters. |
@@ -206,11 +206,11 @@ flowchart TD
 
 ---
 
-## 🌐 24/7 Web Deployment (GitHub Pages)
+## 🌐 Web Demonstration Suite (GitHub Pages)
 
 The project includes an embedded client-side simulation engine that provides full interactive evaluation without requiring a local backend server:
 
-* **Live Deployment URL**: **[https://shakyavinit.github.io/tracex-sahyog/](https://shakyavinit.github.io/tracex-sahyog/)**
+* **Web Evaluation URL**: **[https://shakyavinit.github.io/tracex-sahyog/](https://shakyavinit.github.io/tracex-sahyog/)**
 * **Hosting**: GitHub Pages (Global CDN, HTTPS Enforced)
 * **Mode**: Synthetic Demo Benchmark Mode active by default
 

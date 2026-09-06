@@ -182,7 +182,7 @@ address: {deposit_address}
 DIRECTIONS — TEMPORARY FREEZE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-You are further directed to IMMEDIATELY impose a temporary operational hold
+You are further directed to IMMEDIATELY impose a temporary administrative debit hold (draft for review by authorized agencies)
 (freeze) on the following wallet address and all associated accounts/sub-wallets
 on your platform:
 
