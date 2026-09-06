@@ -1,0 +1,869 @@
+TRACEX — SIH26182 DEVELOPER IMPLEMENTATION PROMPT
+Verified and prepared: 04 September 2026 (IST)
+
+PROJECT
+TraceX — Automated Attribution of Unknown Cryptocurrency Wallets to Nearest Virtual Asset Service Providers (VASPs) through Blockchain Intelligence APIs
+
+OFFICIAL PROBLEM STATEMENT
+SIH26182 — Ministry of Home Affairs, Indian Cyber Crime Coordination Centre (I4C), CIS Division
+Category: Software
+Theme: Blockchain & Cybersecurity
+
+CURRENT PROTOTYPE
+https://filters-grain-absent-advertisement.trycloudflare.com/
+
+======================================================================
+1. YOUR ROLE AND AUTHORIZATION
+======================================================================
+
+Act as the lead full-stack developer, blockchain data engineer, security engineer, QA engineer, and technical documentation owner for this prototype.
+
+You are authorized by the project owner to:
+
+- Refactor the existing frontend and backend.
+- Add, remove, or replace dependencies.
+- Create free developer accounts and API projects when needed.
+- Integrate public/free APIs and approved trial APIs.
+- Add database migrations, background jobs, authentication, tests, logging, caching, and deployment configuration.
+- Replace incorrect demo data and misleading claims.
+- Improve the complete UI/UX while preserving the TraceX product identity.
+
+Do not purchase a paid subscription without separate written approval. Never hard-code, commit, print, expose, or send API keys, passwords, OAuth secrets, private keys, police data, KYC data, or other credentials. Store secrets only in environment variables or a secrets manager. Create and commit only a safe .env.example file.
+
+Use only legal public data, licensed APIs, organizer-provided data, or clearly marked synthetic test data. Do not use stolen credentials, leaked KYC records, private police records, unauthorized exchange data, dark-web data, or private wallet keys.
+
+======================================================================
+2. MAIN OBJECTIVE
+======================================================================
+
+Convert the current visual demo into an evidence-first SIH prototype that:
+
+1. Accepts a suspect cryptocurrency wallet address and optional case filters.
+2. Validates the address and detects the correct blockchain.
+3. Fetches real on-chain transactions from verified APIs.
+4. Traces outgoing fund flow through a bounded graph of 1–5 hops.
+5. Finds the nearest defensible VASP deposit point by graph distance, not geographic distance.
+6. Returns Top-3 probable VASP candidates, supporting evidence, source provenance, and confidence breakdown.
+7. Returns UNKNOWN / NEEDS MANUAL REVIEW when the evidence is absent, conflicting, stale, or insufficient.
+8. Detects known mixers, bridges, exchange wallets, deposit wallets, and suspicious laundering patterns only when supported by evidence.
+9. Separates raw on-chain facts from inferred attribution.
+10. Produces an investigation-ready evidence report and a mock SAHYOG request packet after human approval.
+
+Accuracy, provenance, uncertainty, privacy, and reproducibility are more important than flashy output.
+
+======================================================================
+3. IMPORTANT MEANING OF “NEAREST VASP”
+======================================================================
+
+“Nearest” means the first supported VASP-controlled deposit or service wallet reached through the fewest defensible forward transaction hops from the suspect wallet.
+
+- If the suspect address itself is reliably labelled as a VASP, return it as Hop 0.
+- Do not continue creating intermediary wallets after a reliable Hop-0 match.
+- Do not force a VASP answer when no supported labelled endpoint exists.
+- Cross-chain hops must be shown as separate segments joined by a verified bridge or swap event.
+- A wallet owner, beneficial owner, guilt, criminality, or legal liability must never be inferred merely from an address label.
+
+======================================================================
+4. CURRENT AUDIT FINDINGS THAT MUST BE FIXED
+======================================================================
+
+The current deployment is a hybrid demo, not a real blockchain attribution engine.
+
+Critical findings:
+
+- /api/live returned LIVE_FAIL for Ethereum blockchain data during testing.
+- PublicAML returned HTTP 403.
+- Bitcoin Blockchair requests returned HTTP 403.
+- Invalid value “not-a-wallet” was accepted and returned HTTP 200.
+- Chainabuse returned zero reports even for invalid input; zero reports must not be interpreted as a clean wallet.
+- The Ethereum address 0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be is labelled Binance by Etherscan, but an existing TraceX result generated a path from it to OKX.
+- The same 0x3f5ce5... address is duplicated under conflicting VASP entries in the current internal seed data.
+- The demo address 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 is publicly labelled vitalik.eth but is presented as a phishing-drainer case.
+- The demo Bitcoin address 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa is used as a LockBit case without a defensible source.
+- Existing results contain generated-looking amounts, timestamps, intermediary wallets, and transaction hashes.
+- At least one saved path starts from a known Bybit address and returns to the same Bybit address after a simulated mixer route.
+- Confidence values such as 94% and 78% are shown without a reproducible scoring formula.
+- “SAHYOG CONNECTED”, “OFFICIAL MHA ENGINE”, “REAL-TIME”, and “COURT-ADMISSIBLE” are hard-coded claims without proof.
+- Investigation history, VASP data, Swagger docs, and OpenAPI schema are publicly accessible without authentication.
+- CORS currently allows every origin.
+- Demo cases expose realistic complainant names and FIR details.
+- Frontend uses unsanitized innerHTML for API data and may be vulnerable to stored/reflected XSS when arbitrary input is echoed.
+- The sidebar disappears below 1080px and there is no complete mobile layout.
+- API calls took approximately 9–15 seconds and did not clearly distinguish timeout, provider failure, no records, and valid empty results.
+
+Never hide these failures behind synthetic fallback. Show provider health and a clear DEMO / LIVE / DEGRADED state.
+
+======================================================================
+5. REQUIRED USER FLOW
+======================================================================
+
+STEP 1 — CASE INPUT
+
+Required fields:
+
+- Suspect wallet address
+- Network: Auto Detect, BTC, ETH, TRON, BNB, Polygon, Solana
+- Case reference (synthetic or authorized value only)
+- Incident date/time range
+- Suspected transaction amount and asset, if known
+- Crime category
+
+Optional fields:
+
+- Investigation note
+- Transaction hash
+- Direction: outgoing, incoming, both
+- Maximum hop depth, default 3 and maximum 5
+
+Do not require the investigating officer’s real name for a public SIH demo.
+
+STEP 2 — VALIDATION
+
+- Validate checksum/encoding with a chain-specific library, not regex alone.
+- Auto-detect only when the format is unambiguous.
+- EVM-format addresses are shared by ETH, BNB, and Polygon; do not claim a unique chain only from address format.
+- Require network selection or inspect on-chain activity across supported EVM chain IDs.
+- Invalid input must return HTTP 422 with a safe explanation.
+- Do not create a history record when validation or all providers fail.
+
+STEP 3 — REAL DATA COLLECTION
+
+- Fetch real transactions, internal transactions, and token transfers.
+- Normalize all chain responses into one internal transaction schema.
+- Save raw provider response hash, source, retrieval time, network, block number, and request status.
+- Never replace a failed live response with generated transactions.
+
+STEP 4 — GRAPH TRACING
+
+- Build a directed transaction graph.
+- Trace 1–5 bounded forward hops.
+- Enforce node, edge, time-window, amount, and API-budget limits.
+- For EVM, handle native transfers, ERC-20/BEP-20 transfers, internal transactions, and contract calls separately.
+- For Bitcoin, model UTXOs and transaction outputs correctly. Do not present account-style balances as UTXO evidence.
+- Clearly label heuristics such as peel-chain, fan-out, fan-in, rapid cashout, or layering as inferences.
+- Do not claim exact taint ownership when the method cannot prove it.
+
+STEP 5 — ATTRIBUTION
+
+- Match graph nodes to source-backed VASP, mixer, bridge, sanctions, and scam-report labels.
+- Preserve provider name, source URL/reference, retrieved_at, label type, licence/use note, and last_verified_at.
+- Keep raw_onchain_facts and attribution_labels in separate tables/collections.
+- Never allow the same address to silently belong to conflicting VASPs.
+- Display conflict and lower confidence when providers disagree.
+- Stop at the first supported direct-deposit VASP sink for “nearest VASP”.
+
+STEP 6 — ANALYST REVIEW
+
+Return:
+
+- Top-3 candidates or UNKNOWN
+- Hop distance
+- Exact supporting transaction path
+- Confidence score and factor breakdown
+- Source provenance and freshness
+- Counter-evidence and conflicts
+- Provider/API health
+- Analyst actions: Accept, Reject, Needs Review
+
+STEP 7 — REPORT
+
+Generate:
+
+- Investigation summary
+- Raw evidence table
+- Transaction path and graph
+- Candidate VASPs
+- Confidence explanation
+- Conflicts and limitations
+- Source list and retrieval timestamps
+- Analyst decision and audit log
+- SHA-256 report/evidence hash
+- PDF and JSON export
+- Mock SAHYOG request packet; do not claim a live SAHYOG connection without official credentials and API specification.
+
+======================================================================
+6. API INTEGRATION PLAN AND OFFICIAL SOURCES
+======================================================================
+
+A. ETHEREUM, BNB SMART CHAIN, AND POLYGON — ETHERSCAN V2
+
+Use:
+https://api.etherscan.io/v2/api
+
+Required query parameters include chainid, module, action, address, pagination fields, and apikey.
+
+Chain IDs:
+
+- Ethereum Mainnet: 1
+- BNB Smart Chain Mainnet: 56
+- Polygon Mainnet: 137
+
+Implement:
+
+- action=txlist for normal transactions
+- action=tokentx for ERC-20/BEP-20 transfers
+- action=txlistinternal for internal transactions
+- action=balance only for balance display, never as fund-flow evidence
+
+Official documentation:
+
+- Introduction and account setup: https://docs.etherscan.io/introduction
+- Supported chains: https://docs.etherscan.io/supported-chains
+- Normal transactions: https://docs.etherscan.io/api-reference/endpoint/txlist
+- ERC-20 token transfers: https://docs.etherscan.io/api-reference/endpoint/tokentx
+- Internal transactions: https://docs.etherscan.io/api-reference/endpoint/txlistinternal
+- Native balance: https://docs.etherscan.io/api-reference/endpoint/balance
+
+Important:
+
+- Replace the old /api configuration with /v2/api.
+- Treat Etherscan status=0 carefully because it can mean an error or a valid empty response.
+- Implement pagination, timeout, retry with exponential backoff, caching, and rate-limit handling.
+- Keep API key only in ETHERSCAN_API_KEY.
+- Etherscan Metadata/nametag API can provide labels but is a high paid tier; do not assume it is free.
+- Metadata docs: https://docs.etherscan.io/metadata/introduction
+- Address metadata endpoint: https://docs.etherscan.io/api-reference/endpoint/getaddresstag
+
+B. BITCOIN — BLOCKSTREAM ESPLORA
+
+Public base URL:
+https://blockstream.info/api
+
+Implement:
+
+- GET /address/{address}/txs
+- GET /address/{address}/txs/chain/{last_seen_txid} for pagination
+- GET /address/{address}/txs/mempool
+- GET /address/{address}/utxo
+- GET /tx/{txid}
+- GET /tx/{txid}/status
+
+Official source:
+https://github.com/Blockstream/esplora/blob/master/API.md
+
+Important:
+
+- No API key is required for the public instance, but availability/rate limits are not guaranteed.
+- Add caching, bounded concurrency, backoff, and a self-hosted Esplora/electrs configuration option.
+- Never create BTC transaction values or TXIDs when the endpoint fails.
+
+C. TRON AND TRC-20 — TRONGRID
+
+Mainnet base URL:
+https://api.trongrid.io
+
+Send production key in header:
+TRON-PRO-API-KEY: ${TRONGRID_API_KEY}
+
+Implement:
+
+- GET /v1/accounts/{address}/transactions
+- GET /v1/accounts/{address}/transactions/trc20
+- Relevant internal-transaction and event endpoints when required
+
+Official documentation:
+
+- API overview: https://developers.tron.network/reference/trongrid-v1-api-overview
+- API key/network setup: https://developers.tron.network/reference/select-network
+- API reference: https://developers.tron.network/docs/api
+- Rate limits: https://developers.tron.network/reference/rate-limits
+
+Important:
+
+- Quotas can change; read the current console instead of hard-coding a number.
+- Handle HTTP 429 and 403 with backoff and a visible provider-health status.
+- Keep key only in TRONGRID_API_KEY.
+
+D. SOLANA — OFFICIAL JSON-RPC
+
+Development public RPC:
+https://api.mainnet-beta.solana.com
+
+Implement read-only methods:
+
+- getSignaturesForAddress
+- getTransaction
+- getSignatureStatuses when needed
+
+Official documentation:
+
+- RPC overview: https://solana.com/docs/rpc
+- getSignaturesForAddress: https://solana.com/docs/rpc/http/getsignaturesforaddress
+- getTransaction: https://solana.com/docs/rpc/http/gettransaction
+
+Important:
+
+- Public RPC is suitable for limited SIH testing, not guaranteed high-volume production.
+- Make SOLANA_RPC_URL configurable so a managed provider or self-hosted RPC can replace it.
+- Do not use any write/sign/broadcast method. TraceX never needs a private key.
+
+E. MULTI-HOP / MULTI-CHAIN INDEXING — BITQUERY V2 (OPTIONAL BUT RECOMMENDED)
+
+Primary V2 GraphQL endpoint:
+https://streaming.bitquery.io/graphql
+
+Authentication:
+Authorization: Bearer ${BITQUERY_ACCESS_TOKEN}
+
+Use for:
+
+- Cross-checking raw transactions
+- Money-flow queries
+- Multi-hop Coinpath-style analysis
+- EVM, Bitcoin, Tron, Solana, BNB, and Polygon indexing where supported
+
+Official documentation:
+
+- Blockchain API overview: https://docs.bitquery.io/docs/blockchain/introduction/
+- Current endpoints: https://docs.bitquery.io/docs/start/endpoints/
+- Token authorization: https://docs.bitquery.io/docs/authorization/how-to-use/
+- Coinpath overview: https://docs.bitquery.io/v1/docs/building-queries/Coinpath-Explained/Overview
+
+Important:
+
+- New users must use the V2 endpoint.
+- Do not implement deprecated V1 EVM/Tron endpoints.
+- Keep token only in BITQUERY_ACCESS_TOKEN.
+- Do not treat Bitquery as a source of VASP identity unless the returned label and licence explicitly permit that use.
+
+F. FRAUD REPORTS — CHAINABUSE (OPTIONAL)
+
+Official documentation:
+
+- Address/report screening: https://docs.chainabuse.com/docs/get-reports-parameters
+- Law-enforcement access: https://docs.chainabuse.com/docs/law-enforcement-partners
+
+Authentication uses an organization API key through HTTP Basic Auth. Do not claim “0 reports” when authentication fails, the address is invalid, or a private result is unavailable. Return one of:
+
+- REPORTS_FOUND
+- NO_PUBLIC_REPORTS_FOUND
+- PROVIDER_UNAVAILABLE
+- NOT_AUTHORIZED
+- INVALID_ADDRESS
+
+G. SANCTIONS SCREENING — OFAC SANCTIONS LIST SERVICE
+
+Use official downloadable sanctions data instead of the currently failing PublicAML dependency.
+
+Official sources:
+
+- Sanctions List Service: https://ofac.treasury.gov/sanctions-list-service
+- SDN list downloads: https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists
+- Virtual-currency guidance: https://ofac.treasury.gov/faqs/topic/1626
+- Exact digital-currency-address search guidance: https://ofac.treasury.gov/faqs/594
+
+Implementation:
+
+- Download supported official CSV/XML data on a scheduled job.
+- Extract exact digital-currency address identifiers.
+- Normalize by chain and address case rules.
+- Store source file date, download time, record identifier, and hash.
+- Use exact address matching; never use fuzzy matching for wallet addresses.
+- A no-match does not prove that a wallet is safe because OFAC states the list is not exhaustive.
+
+H. INDIA VASP REGULATORY REFERENCE — FIU-IND
+
+Use FIU-IND only to verify regulatory/reference information about registered reporting entities. Do not infer wallet ownership from registration status.
+
+Official sources:
+
+- FIU-IND home: https://fiuindia.gov.in/
+- VDA registration downloads/circulars: https://fiuindia.gov.in/files/Downloads/Downloads.html
+- Archive: https://fiuindia.gov.in/files/misc/archive.html
+
+Save the source document, version/date, and verification date for every regulatory claim. Do not hard-code compliance email addresses or freezing authority without an official current source.
+
+I. COMMERCIAL ATTRIBUTION PROVIDER — OPTIONAL TRIAL
+
+Raw explorer APIs cannot reliably prove which exchange or VASP controls an unknown deposit address. For stronger attribution, integrate one licensed intelligence provider after obtaining authorized trial/API access, for example TRM Labs or Elliptic.
+
+Requirements:
+
+- Keep the commercial provider behind an AttributionProvider interface.
+- Record label, provider, confidence, last updated, licence/use restriction, and evidence reference.
+- Provide an open/public-label fallback for the SIH demo.
+- Never scrape a commercial dashboard or bypass access controls.
+- Never claim a commercial integration until credentials and successful test results exist.
+
+======================================================================
+7. NORMALIZED DATA MODEL
+======================================================================
+
+Use a relational database such as PostgreSQL. SQLite may be kept only for local demo mode.
+
+Suggested entities:
+
+cases
+- id, public_case_id, title, category, created_by, status, created_at
+
+wallets
+- id, normalized_address, chain, checksum_valid, first_seen, last_seen
+
+transactions
+- id, chain, tx_hash, block_number, block_time, from_address, to_address, asset, amount_raw, amount_normalized, token_contract, status
+
+graph_edges
+- id, case_id, source_wallet_id, target_wallet_id, transaction_id, hop_index, direction, evidence_status
+
+attribution_labels
+- id, wallet_id, entity_name, entity_type, provider, source_reference, retrieved_at, last_verified_at, licence_note, provider_confidence
+
+attribution_candidates
+- id, case_id, wallet_id, vasp_name, hop_distance, score, status, score_breakdown_json, conflicts_json
+
+provider_runs
+- id, case_id, provider, endpoint_class, status, started_at, completed_at, latency_ms, error_code, response_hash
+
+analyst_decisions
+- id, case_id, candidate_id, decision, reason, analyst_id, decided_at
+
+audit_events
+- id, actor_id, case_id, action, object_type, object_id, timestamp, metadata_json
+
+reports
+- id, case_id, version, sha256, generated_by, generated_at, file_path
+
+Never store raw API keys, private keys, passwords, or unnecessary PII.
+
+======================================================================
+8. CONFIDENCE SCORING
+======================================================================
+
+Implement a transparent, configurable score. Do not display fake precision.
+
+Suggested starting model:
+
+- +50: Direct address label from an approved attribution provider
+- +20: Two independent approved providers agree
+- +15: Exact real transaction path reaches the labelled deposit wallet
+- +10: Amount and time continuity supports the path
+- +5: Behavioural cluster evidence supports the entity
+- -25: Label is stale or unverified
+- -40: Providers conflict
+- -30: Path crosses an unresolved mixer/bridge break
+
+Rules:
+
+- 85–100: High confidence, still requires analyst approval
+- 65–84: Probable
+- 40–64: Low confidence / manual review
+- Below 40: UNKNOWN
+- No valid transaction evidence: UNKNOWN regardless of label score
+- Provider conflict: show every candidate and conflict; never silently choose one
+
+Display the factor-by-factor breakdown and evidence links in the UI and report. Make all weights configurable and clearly mark them as prototype policy, not a legal standard.
+
+======================================================================
+9. BACKEND STRUCTURE
+======================================================================
+
+Refactor the FastAPI backend into modules similar to:
+
+backend/
+  app/
+    main.py
+    config.py
+    security.py
+    api/
+      auth.py
+      health.py
+      cases.py
+      trace.py
+      reports.py
+    adapters/
+      base.py
+      etherscan_v2.py
+      blockstream_esplora.py
+      trongrid.py
+      solana_rpc.py
+      bitquery_v2.py
+      chainabuse.py
+      ofac_sls.py
+    services/
+      address_validation.py
+      transaction_normalizer.py
+      graph_tracer.py
+      label_resolver.py
+      attribution_engine.py
+      confidence_engine.py
+      report_service.py
+    models/
+      database.py
+      schemas.py
+    repositories/
+    migrations/
+  tests/
+  requirements.txt or pyproject.toml
+  .env.example
+
+Return structured error codes and suitable HTTP status codes. Do not return provider stack traces or API secrets to the frontend.
+
+======================================================================
+10. REQUIRED API CONTRACT
+======================================================================
+
+POST /api/v1/traces
+
+Request:
+
+{
+  "address": "...",
+  "chain": "ETH|null",
+  "case_id": "DEMO-001",
+  "direction": "outgoing",
+  "max_hops": 3,
+  "from_time": null,
+  "to_time": null,
+  "known_amount": null,
+  "known_asset": null
+}
+
+Immediate response:
+
+{
+  "trace_id": "uuid",
+  "status": "queued|running|completed|failed|partial",
+  "mode": "live|demo",
+  "created_at": "ISO-8601"
+}
+
+GET /api/v1/traces/{trace_id}
+
+Return:
+
+- Validated input
+- Provider status/freshness
+- Real nodes and edges
+- Top-3 candidates or UNKNOWN
+- Confidence breakdown
+- Conflicts and limitations
+- Analyst-review status
+
+GET /api/v1/providers/health
+
+Return per provider:
+
+- status: healthy, degraded, unavailable, not_configured
+- last_success_at
+- latency_ms
+- error category without secrets
+
+POST /api/v1/traces/{trace_id}/decision
+
+- Accept, reject, or needs_review
+- Authenticated analyst only
+- Must create audit event
+
+POST /api/v1/traces/{trace_id}/reports
+
+- Generate JSON and PDF only after analyst decision or explicit draft flag
+- Return report hash and version
+
+POST /api/v1/traces/{trace_id}/sahyog-packet
+
+- Generate mock integration payload only
+- Output must contain mode: MOCK unless official I4C credentials/specification exist
+
+======================================================================
+11. ENVIRONMENT VARIABLES
+======================================================================
+
+Create .env.example containing names only, never real values:
+
+APP_ENV=development
+APP_MODE=demo
+SECRET_KEY=
+DATABASE_URL=
+REDIS_URL=
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:8000
+
+ETHERSCAN_API_KEY=
+ETHERSCAN_BASE_URL=https://api.etherscan.io/v2/api
+
+BLOCKSTREAM_BASE_URL=https://blockstream.info/api
+
+TRONGRID_API_KEY=
+TRONGRID_BASE_URL=https://api.trongrid.io
+
+SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+
+BITQUERY_ACCESS_TOKEN=
+BITQUERY_GRAPHQL_URL=https://streaming.bitquery.io/graphql
+
+CHAINABUSE_API_KEY=
+OFAC_DATA_REFRESH_HOURS=24
+
+ATTRIBUTION_PROVIDER=public
+COMMERCIAL_ATTRIBUTION_API_KEY=
+
+SAHYOG_MODE=mock
+SAHYOG_BASE_URL=
+SAHYOG_CLIENT_ID=
+SAHYOG_CLIENT_SECRET=
+
+ENABLE_SWAGGER=false
+HISTORY_RETENTION_DAYS=30
+
+======================================================================
+12. SECURITY AND PRIVACY REQUIREMENTS
+======================================================================
+
+- Add authentication and role-based access: admin, investigator, reviewer, demo.
+- Demo mode must contain no real officer, complainant, FIR, KYC, or police data.
+- Protect case history and reports behind authentication.
+- Restrict CORS to configured origins.
+- Disable Swagger/OpenAPI in production or restrict it to admin.
+- Add secure headers: CSP, HSTS, X-Content-Type-Options, Referrer-Policy, frame-ancestors or X-Frame-Options, and Permissions-Policy.
+- Apply server-side address validation and Pydantic length/type constraints.
+- Sanitize or safely render all API output; replace unsafe innerHTML with textContent or framework-escaped components.
+- Add rate limiting by user/IP and API cost budget per trace.
+- Add timeouts, circuit breakers, exponential backoff, and cached fallbacks.
+- Do not log secrets, complete authorization headers, or unnecessary personal data.
+- Add audit events for case access, trace execution, analyst decisions, report generation, and export.
+- Hash exported evidence and preserve provider source timestamps.
+- Never accept, store, request, or use cryptocurrency private keys or seed phrases.
+
+======================================================================
+13. LEGAL AND CLAIMS CORRECTIONS
+======================================================================
+
+Replace:
+
+- “OFFICIAL MHA I4C ENGINE” with “SIH 2026 Research Prototype for SIH26182”.
+- “SAHYOG CONNECTED” with “SAHYOG Integration: MOCK / NOT CONFIGURED”.
+- “COURT-ADMISSIBLE” with “Investigation Draft — Requires Authorized Human Review”.
+- “REAL-TIME” with a dynamic state based on actual provider health.
+- “15+ INDEXED” with an exact, source-backed label count and last-updated date.
+
+The current “Section 91 CrPC” feature must be legally reviewed. For current cases, implement a configurable template referring to Section 94 of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 only after authorized legal review.
+
+Official source:
+https://www.mha.gov.in/sites/default/files/2024-04/250884_2_english_01042024.pdf
+
+Do not automatically issue or send legal, freezing, disclosure, or SAHYOG requests. Generate a draft packet for human review only.
+
+======================================================================
+14. UI/UX REDESIGN
+======================================================================
+
+Keep the dark TraceX identity but remove visual overload.
+
+Recommended information architecture:
+
+Top bar:
+
+- TraceX logo and case ID
+- Mode: DEMO or LIVE
+- Provider health summary
+- Current user/role
+
+Left navigation:
+
+- New Trace
+- Cases
+- Review Queue
+- Reports
+- Data Sources
+- Settings
+
+Main investigation workflow:
+
+1. Input
+2. Evidence Path
+3. VASP Candidates
+4. Review & Report
+
+Design rules:
+
+- Use one main purple/blue accent.
+- Green only for verified success.
+- Yellow only for uncertainty/review.
+- Red only for confirmed errors/high-risk evidence.
+- Maximum two font families.
+- Use normal sentence case; reduce all-caps and excessive brackets.
+- Body text at least 14–16px.
+- Use monospace only for addresses, hashes, IDs, and technical values.
+- Keep primary action visible; move secondary actions into their relevant step.
+- Show source, freshness, and evidence status beside every result.
+- Add compact Top-3 candidate comparison.
+- Add a visible UNKNOWN/manual-review state.
+- Graph must support zoom, pan, hover details, filtering, and click-to-open evidence.
+- Do not rely on color alone; include icons and text labels.
+
+Responsive requirements:
+
+- Add breakpoints near 1024px, 768px, and 480px.
+- Replace hidden sidebar with an accessible drawer.
+- Use one-column forms on mobile.
+- Make tabs scrollable or replace with step navigation.
+- Minimum 44px touch targets.
+- Prevent clipped addresses, buttons, and headers.
+
+Accessibility:
+
+- Use semantic labels for every input.
+- Use real button/tab elements with keyboard support.
+- Add focus states, ARIA roles, and accessible error announcements.
+- Meet WCAG AA contrast where practical.
+
+======================================================================
+15. DEMO DATA POLICY
+======================================================================
+
+- Every synthetic case must show a permanent “SYNTHETIC DEMO — NOT REAL CASE DATA” banner.
+- Use case IDs like DEMO-SIH26182-001, not realistic police/FIR identifiers.
+- Do not use real person names or claim real addresses are criminals/victims.
+- Use organizer-provided fixtures, testnet data, or carefully documented public research examples.
+- If using a known mainnet exchange address, label the example as a public address-label verification test, not a crime case.
+- Maintain offline fixtures for success, unknown label, provider conflict, mixer break, invalid address, API timeout, and no-result cases.
+- Synthetic data must never be shown when LIVE mode is selected.
+
+======================================================================
+16. TESTS AND ACCEPTANCE CRITERIA
+======================================================================
+
+UNIT TESTS
+
+- Valid and invalid address tests for every chain.
+- EVM ambiguity tests across ETH, BNB, and Polygon.
+- Normalization tests for amounts, decimals, timestamps, addresses, and hashes.
+- Graph hop-limit and cycle-prevention tests.
+- Confidence scoring and conflict tests.
+- UNKNOWN result tests.
+- Provider timeout/403/429/invalid-response tests.
+
+INTEGRATION TESTS
+
+- Etherscan V2 returns verified real transaction hashes for a public address.
+- Blockstream returns real Bitcoin transactions and UTXOs.
+- TronGrid returns real TRX/TRC-20 history when configured.
+- Solana RPC returns real signatures and transactions.
+- Provider failure remains PROVIDER_UNAVAILABLE and never becomes “0 reports” or generated data.
+- No history record is created on invalid input or total provider failure.
+
+SECURITY TESTS
+
+- Anonymous users cannot read case history, reports, labels, or analyst details.
+- Production CORS rejects unknown origins.
+- Swagger is unavailable to anonymous production users.
+- Arbitrary address input is safely escaped and cannot execute HTML/JavaScript.
+- API keys never appear in browser network responses, logs, errors, reports, or Git history.
+
+REFERENCE TESTS
+
+- 0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be must not be falsely traced as an unknown suspect to OKX. If a verified label source identifies it as Binance, return Binance at Hop 0 and show the source.
+- 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 must not be presented as a phishing-drainer criminal case. If used, show it only as a public label-resolution test.
+- Invalid input “not-a-wallet” must return HTTP 422 and must not create history.
+- Conflicting VASP labels must produce conflict/manual review, not an automatic 94% result.
+
+PERFORMANCE TARGETS FOR SIH DEMO
+
+- Input validation: under 500ms.
+- Cached trace result: under 2 seconds.
+- Fresh 1–3 hop trace: target under 15 seconds with visible provider-level progress.
+- Provider timeout: configurable, normally 5–10 seconds per request.
+- Entire UI must remain interactive during tracing.
+
+DEFINITION OF DONE
+
+- At least ETH and BTC work end-to-end with real, verifiable transaction evidence.
+- TRON works if a valid TronGrid key is available.
+- BNB and Polygon use Etherscan V2 chain IDs.
+- Solana is implemented or clearly marked roadmap/not configured.
+- No generated data is presented as live.
+- Attribution can return UNKNOWN.
+- Every result shows source and freshness.
+- Authentication protects investigation data.
+- PDF/JSON report contains evidence, confidence breakdown, limitations, and hash.
+- SAHYOG is clearly marked mock unless official access exists.
+- Demo fixtures work offline when external APIs fail.
+- README includes setup, API-account steps, architecture, limitations, and demo script.
+
+======================================================================
+17. IMPLEMENTATION ORDER
+======================================================================
+
+PHASE 0 — BACKUP AND BASELINE
+
+- Backup current database and source.
+- Create a new Git branch.
+- Document current endpoint behaviour.
+- Add test environment and .env.example.
+
+PHASE 1 — TRUTHFULNESS AND SECURITY
+
+- Add DEMO/LIVE mode.
+- Remove false MHA/SAHYOG/court-admissible claims.
+- Add validation, authentication, private history, CORS allowlist, safe rendering, rate limits, and secure headers.
+- Remove or replace realistic fake case data.
+
+PHASE 2 — REAL ETH AND BTC MVP
+
+- Implement Etherscan V2 and Blockstream adapters.
+- Normalize transactions.
+- Build bounded graph tracing.
+- Add label provenance and UNKNOWN output.
+- Add verified explorer links and evidence table.
+
+PHASE 3 — ATTRIBUTION AND REVIEW
+
+- Add source-backed public labels.
+- Add provider conflicts, Top-3 candidates, explainable score, counter-evidence, analyst review, and audit log.
+
+PHASE 4 — TRON, BNB, POLYGON, SOLANA
+
+- Integrate TronGrid.
+- Reuse Etherscan V2 for BNB and Polygon.
+- Add Solana RPC adapter.
+- Add Bitquery V2 only if access is configured and useful.
+
+PHASE 5 — REPORT AND DEMO
+
+- Generate PDF/JSON evidence report.
+- Add mock SAHYOG packet.
+- Add offline fixtures.
+- Complete responsive redesign, accessibility, performance testing, and SIH demo script.
+
+Do not start with all six chains at once. Deliver a truthful, verifiable ETH + BTC vertical slice first, then expand.
+
+======================================================================
+18. REQUIRED FINAL HANDOVER
+======================================================================
+
+Provide:
+
+- Updated source code
+- Database migrations
+- .env.example with no secrets
+- Setup and deployment README
+- API account/setup guide
+- Architecture diagram
+- Data-source and licence/provenance table
+- Automated test suite and test results
+- Security checklist
+- Known limitations
+- Demo-mode dataset and fixtures
+- Five-minute SIH demonstration script
+- Before/after screenshots
+- Change log
+
+At the end, clearly report:
+
+1. Which chains are genuinely live.
+2. Which providers are configured.
+3. Which data is real, synthetic, cached, or inferred.
+4. Which VASP labels have verified provenance.
+5. Which features are mock/roadmap.
+6. Which tests passed or failed.
+7. Any paid/provider access still required.
+
+Do not claim completion until the reference tests and definition-of-done criteria pass.
+
+======================================================================
+19. FINAL PRODUCT PRINCIPLE
+======================================================================
+
+The winning value of TraceX is not “always finding an exchange.”
+
+The winning value is producing the first defensible VASP lead with a real transaction path, visible evidence, explainable confidence, source provenance, honest uncertainty, human review, and a safe investigation workflow.
+
