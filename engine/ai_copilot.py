@@ -193,7 +193,7 @@ def execute_ai_completion(prompt: str, temperature: float = 0.2) -> Dict[str, An
     # 3. Deterministic Evidence Rule Engine (when external LLMs unavailable)
     return {
         "text": _generate_rule_based_briefing(prompt),
-        "provider": "TraceX Deterministic Reasoning Engine",
+        "provider": "Prototype AI Copilot (LLM-Assisted Heuristics)",
         "model": "rule-based-forensics",
         "latency_ms": round((time.time() - t0) * 1000, 1),
         "fallback_used": True
@@ -319,9 +319,9 @@ Explain:
 
 
 def recommend_actions(trace_data: Dict[str, Any]) -> Dict[str, Any]:
-    """Recommend next tactical steps for LEA officers."""
+    """Recommend next investigative steps for LEA officers."""
     nv = trace_data.get("nearest_vasp", {})
-    prompt = f"""Generate actionable next tactical steps for the Investigating Officer under Indian Law:
+    prompt = f"""Generate actionable next investigative steps for the Investigating Officer under Indian Law:
 
 TARGET VASP: {nv.get('name', 'UNKNOWN')}
 JURISDICTION: {nv.get('country', 'Global')}

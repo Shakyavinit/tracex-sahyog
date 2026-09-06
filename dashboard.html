@@ -7480,7 +7480,7 @@ main {
 
 
 /* ==========================================================================
-   MASTERCLASS TACTICAL FORENSIC TOOLS HUB & DOCK (CYBER HUD DECK)
+   MASTERCLASS FORENSIC TOOLS HUB & DOCK (CYBER HUD DECK)
    ========================================================================== */
 .btn-topbar-tools {
   height: 36px !important;
@@ -7999,7 +7999,7 @@ main {
 
 
 /* ==========================================================================
-   MASTERCLASS TACTICAL FORENSIC TOOLS HUB & DOCK (CYBER HUD DECK)
+   MASTERCLASS FORENSIC TOOLS HUB & DOCK (CYBER HUD DECK)
    ========================================================================== */
 .btn-topbar-tools {
   height: 36px !important;
@@ -8518,7 +8518,7 @@ main {
 
 
 /* ==========================================================================
-   MASTERCLASS TACTICAL FORENSIC TOOLS HUB (3-COLUMN WIDESCREEN MODAL POPUP)
+   MASTERCLASS FORENSIC TOOLS HUB (3-COLUMN WIDESCREEN MODAL POPUP)
    ========================================================================== */
 .btn-topbar-tools {
   height: 36px !important;
@@ -10042,6 +10042,283 @@ main {
   font-weight: 700 !important;
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIH26182 GROUNDED & CREDIBLE RESEARCH PROTOTYPE STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Global Disclaimer Banner */
+.sih-global-disclaimer-banner {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.18) 0%, rgba(6, 12, 32, 0.98) 50%, rgba(56, 189, 248, 0.18) 100%);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 8px 24px;
+  position: relative;
+  z-index: 105;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+.sgdb-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.sgdb-badge {
+  background: rgba(245, 158, 11, 0.22);
+  border: 1px solid rgba(245, 158, 11, 0.65);
+  color: #fbbf24;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+}
+.sgdb-msg {
+  font-family: var(--font-sans, system-ui);
+  font-size: 0.74rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  text-align: center;
+}
+.sgdb-msg strong {
+  color: #fbbf24;
+}
+.sgdb-msg em {
+  color: #38bdf8;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Investigator Pipeline Flow Ribbon */
+.investigator-pipeline-card {
+  background: rgba(8, 14, 38, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 20px 0 24px 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+}
+.ipc-header {
+  margin-bottom: 16px;
+}
+.ipc-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ipc-icon {
+  font-size: 1.1rem;
+}
+.ipc-title {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.ipc-badge {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.ipc-sub {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+.ipc-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  align-items: stretch;
+}
+@media (max-width: 1100px) {
+  .ipc-steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 14px;
+  }
+}
+@media (max-width: 640px) {
+  .ipc-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.ipc-step-item {
+  background: rgba(15, 23, 52, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+.ipc-step-item:hover {
+  background: rgba(20, 32, 70, 0.8);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+}
+.ipc-step-item.active {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.08);
+}
+.ipc-step-item.approval-step {
+  border-color: rgba(245, 158, 11, 0.5);
+  background: rgba(245, 158, 11, 0.07);
+}
+.ipc-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #38bdf8;
+  margin-bottom: 6px;
+}
+.ipc-step-item.approval-step .ipc-step-num {
+  color: #fbbf24;
+}
+.ipc-step-title {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 4px;
+}
+.ipc-step-desc {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+.ipc-arrow {
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(56, 189, 248, 0.4);
+  font-size: 0.75rem;
+  z-index: 2;
+  display: none;
+}
+
+/* LEA Operational Context & Limitations Sections */
+.lea-intel-section {
+  background: rgba(8, 14, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+.lea-intel-section.limitations-section {
+  border-color: rgba(245, 158, 11, 0.25);
+  background: rgba(14, 18, 38, 0.85);
+}
+.lis-header {
+  margin-bottom: 20px;
+}
+.lis-tag {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.6px;
+  margin-bottom: 8px;
+}
+.lis-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 6px 0;
+}
+.lis-desc {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 900px;
+}
+.lis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.lis-grid.four-col {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1024px) {
+  .lis-grid, .lis-grid.four-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .lis-grid, .lis-grid.four-col {
+    grid-template-columns: 1fr;
+  }
+}
+.lis-card {
+  background: rgba(12, 20, 48, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s;
+}
+.lis-card:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+.lis-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+.lis-card-title {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+}
+.lis-card-text {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0;
+}
+.lis-card-text strong {
+  color: #e2e8f0;
+}
+.lis-card-text em {
+  color: #38bdf8;
+  font-style: normal;
+  font-weight: 600;
+}
+
 </style>
 </head>
 <body>
@@ -10070,7 +10347,7 @@ main {
           <span class="badge-tag" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.4);color:#34d399;padding:3px 10px;border-radius:4px;font-size:0.68rem;font-weight:800;letter-spacing:0.5px">LEA FORENSIC COMMAND</span>
         </div>
         <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:900;color:#fff;margin:0;letter-spacing:0.4px">
-          TraceX v2.0-PRO // System Architecture & Executive Intelligence Dossier
+          TraceX v2.0 // SIH26182 Research Prototype & LEA Technical Architecture
         </h2>
         <div style="font-family:var(--font-mono);font-size:0.72rem;color:#94a3b8;margin-top:3px">
           Indian Cyber Crime Coordination Centre (I4C) • Ministry of Home Affairs • High-Performance Blockchain Intelligence
@@ -10084,7 +10361,7 @@ main {
         🏛️ OFFICIAL PROBLEM STATEMENT OBJECTIVE [ID: 26182]
       </div>
       <div style="font-size:0.84rem;line-height:1.6;color:#e2e8f0">
-        TraceX empowers Law Enforcement Agencies (LEAs) to de-anonymize illicit cryptocurrency fund flows across multi-chain networks (Bitcoin, Ethereum, TRON USDT). The system traces obfuscated hops, identifies FATF laundering typologies (peel chains, mixers, cross-chain bridges), attributes the terminal regulated <b>Virtual Asset Service Provider (VASP)</b> holding suspect KYC records, and synthesizes court-admissible <b>Section 91 BNSS / CrPC asset-freezing requisitions</b>.
+        TraceX empowers Law Enforcement Agencies (LEAs) to de-anonymize illicit cryptocurrency fund flows across multi-chain networks (Bitcoin, Ethereum, TRON USDT). The system traces obfuscated hops, identifies FATF laundering typologies (peel chains, mixers, cross-chain bridges), attributes the terminal regulated <b>Virtual Asset Service Provider (VASP)</b> holding suspect KYC records, and synthesizes draft <b>Section 91 BNSS / CrPC asset-freezing requisitions for authorized LEA review</b>.
       </div>
     </div>
 
@@ -10195,7 +10472,7 @@ main {
       </div>
       <div class="diag-item">
         <div class="diag-label">Forensic Classification</div>
-        <div class="diag-val cyan">Tier-1 LEA Standard [VERIFIED]</div>
+        <div class="diag-val cyan">SIH26182 Research Prototype Benchmark</div>
       </div>
       <div class="diag-item">
         <div class="diag-label">Graph Database</div>
@@ -10207,7 +10484,7 @@ main {
       </div>
       <div class="diag-item">
         <div class="diag-label">API Infrastructure</div>
-        <div class="diag-val green">7/7 Active Keys Configured (.env)</div>
+        <div class="diag-val green">7 Evaluation APIs Configured (Prototype)</div>
       </div>
       <div class="diag-item">
         <div class="diag-label">Deployment Mode</div>
@@ -10222,7 +10499,7 @@ main {
           <div style="display:flex;align-items:center;gap:8px">
             <span style="font-size:1.1rem">🚀</span>
             <span style="font-family:var(--font-display);font-size:0.95rem;font-weight:800;color:#fff">Live API Health & Postman Test Console</span>
-            <span class="postman-badge method-get" id="overallApiBadge"><span class="status-dot status-dot-green" style="margin-right:4px"></span> 7/7 Online</span>
+            <span class="postman-badge method-get" id="overallApiBadge"><span class="status-dot status-dot-green" style="margin-right:4px"></span> 7/7 APIs Configured (Evaluation Mode)</span>
           </div>
           <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--text-muted);margin-top:2px">
             Real-time ping benchmarks, latency telemetry & live payload inspection
@@ -10345,10 +10622,10 @@ main {
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════════════════
-     TACTICAL TOPBAR COMMAND HEADER // TraceX INTERACTIVE BRAND
+     TOPBAR COMMAND HEADER // TraceX RESEARCH PROTOTYPE
      ═══════════════════════════════════════════════════════════════════════════ -->
 <header class="topbar">
-  <div class="brand" id="brandBtn" onclick="openTraceXConsole()" style="cursor:pointer" title="Click to open TraceX Tactical Console & Diagnostics">
+  <div class="brand" id="brandBtn" onclick="openTraceXConsole()" style="cursor:pointer" title="Click to open TraceX Intelligence Console & Diagnostics">
     <div class="brand-emblem" id="brandLogo">
       <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <polygon points="50,6 92,26 92,74 50,94 8,74 8,26" stroke="url(#txGlowMain)" stroke-width="4" fill="rgba(11,15,38,0.7)"/>
@@ -10385,7 +10662,7 @@ main {
       <!-- 2. Real-Time API Radar Status -->
       <div class="api-radar-pill" onclick="openTraceXConsole()" title="Click to open Postman API Tester & Live Benchmarks">
         <span class="live-beacon-dot"></span>
-        <span id="topbarApiCount">7/7 APIS LIVE</span>
+        <span id="topbarApiCount">7 EVAL APIs CONFIGURED</span>
       </div>
 
       <!-- 3. Interactive DEMO / LIVE Mode Switcher -->
@@ -10412,7 +10689,7 @@ main {
 </header>
 
 <!-- =========================================================================
-     MASTERCLASS TACTICAL FORENSIC TOOLS HUB (3-COLUMN WIDESCREEN MODAL POPUP)
+     MASTERCLASS FORENSIC TOOLS HUB (3-COLUMN WIDESCREEN MODAL POPUP)
      ========================================================================= -->
 <div class="tools-hub-overlay" id="toolsHubOverlay" onclick="handleToolsHubBackdrop(event)" style="display:none">
   <div class="tools-hub-box" id="toolsHubBox">
@@ -10430,7 +10707,7 @@ main {
         </div>
         <div>
           <div class="tools-hub-title">FORENSIC INTELLIGENCE & COMMAND DOCK</div>
-          <div class="tools-hub-subtitle">TraceX LEA Tactical Suite // Section 91 & Multi-Chain Attribution</div>
+          <div class="tools-hub-subtitle">TraceX LEA Investigation Suite // Section 91 & Multi-Chain Attribution</div>
         </div>
       </div>
       <div class="tools-hub-header-actions">
@@ -10478,7 +10755,7 @@ main {
         <div class="tool-card-content">
           <div class="tool-card-top">
             <div class="tool-card-title">TraceX API Diagnostics</div>
-            <span class="tool-card-tag tag-cyan">7/7 LIVE</span>
+            <span class="tool-card-tag tag-cyan">7 EVAL APIs</span>
           </div>
           <div class="tool-card-desc">Interactive Postman test suite for all 7 live APIs with real-time latency monitor.<span class="tool-card-arrow">➔</span></div>
         </div>
@@ -10556,7 +10833,7 @@ main {
             <div class="tool-card-title">Section 91 Synthesizer</div>
             <span class="tool-card-tag tag-amber">SECTION 91</span>
           </div>
-          <div class="tool-card-desc">Draft court-admissible asset freezing requisition notices for target VASP nodal officers.<span class="tool-card-arrow">➔</span></div>
+          <div class="tool-card-desc">Draft Section 91 asset freezing requisition notices for target VASP compliance officers (subject to IO sign-off).<span class="tool-card-arrow">➔</span></div>
         </div>
       </div>
 
@@ -10573,8 +10850,8 @@ main {
         </div>
         <div class="tool-card-content">
           <div class="tool-card-top">
-            <div class="tool-card-title">AI Investigator Copilot</div>
-            <span class="tool-card-tag tag-pink">GEMINI 3.6</span>
+            <div class="tool-card-title">Prototype AI Copilot</div>
+            <span class="tool-card-tag tag-pink">LLM-ASSISTED</span>
           </div>
           <div class="tool-card-desc">Dual-engine AI reasoning, automated AML narratives & judicial evidence Q&A.<span class="tool-card-arrow">➔</span></div>
         </div>
@@ -10661,7 +10938,7 @@ main {
         </div>
         <div class="tool-card-content">
           <div class="tool-card-top">
-            <div class="tool-card-title" id="hubAudioTitle">Tactical Cyber Audio</div>
+            <div class="tool-card-title" id="hubAudioTitle">Auditory Feedback SFX</div>
             <span class="tool-card-tag tag-cyan" id="hubAudioBadge">ON</span>
           </div>
           <div class="tool-card-desc" id="hubAudioDesc">Toggle acoustic effects for radar sweeps, button clicks & forensic alerts.<span class="tool-card-arrow">➔</span></div>
@@ -10729,9 +11006,10 @@ main {
     <div class="corner-accent corner-br"></div>
 
     <div class="recon-engine-bar">
+      <!-- Case Intake Mode Indicator -->
       <div class="reb-status">
         <span class="pulse-indicator" style="background:#10b981;box-shadow:0 0 8px #10b981"></span>
-        <span>RECON ENGINE ONLINE</span>
+        <span>CASE INTAKE READY</span>
       </div>
       <span class="reb-mode">ACTIVE</span>
     </div>
@@ -10875,7 +11153,7 @@ main {
 
   <!-- ── PERSISTENT MODE NOTIFICATION BANNER ── -->
   <div id="modeBanner" class="mode-banner-demo">
-    <span class='status-dot status-dot-amber' style='margin-right:6px'></span> <b>Synthetic demo benchmark active:</b> Standard evaluation benchmark cases. No real complainant, KYC, or police data is used.
+    <span class='status-dot status-dot-amber' style='margin-right:6px'></span> <b>SIH26182 Research Prototype (Demo Mode):</b> Preloaded evaluation benchmarks. Demo data is synthetic. Final legal action subject to authorized LEA approval.
   </div>
 
   <!-- ── HERO WELCOME COMMAND CENTER ── -->
@@ -10944,7 +11222,7 @@ main {
     <!-- Navigation Tabs -->
     <div class="cyber-tabs">
       <div class="cyber-tab active" data-tab="attribution">VASP attribution <span class="tab-badge">PRIMARY</span></div>
-      <div class="cyber-tab" data-tab="copilot">AI Investigator <span class="tab-badge" style="background:rgba(168,85,247,0.25);color:var(--accent-purple)">GEMINI 3.6</span></div>
+      <div class="cyber-tab" data-tab="copilot">Prototype AI Copilot <span class="tab-badge" style="background:rgba(168,85,247,0.25);color:var(--accent-purple)">LLM-ASSISTED</span></div>
       <div class="cyber-tab" data-tab="livedata">Live terminal <span class="tab-badge">ON-CHAIN</span></div>
       <div class="cyber-tab" data-tab="path">Transaction path <span class="tab-badge">HOPS</span></div>
       <div class="cyber-tab" data-tab="risk">Risk & AML <span class="tab-badge">FATF</span></div>
@@ -10955,6 +11233,23 @@ main {
 
     <!-- PANE 1: VASP ATTRIBUTION HUD (CYBER DOSSIER) -->
     <div class="pane active" id="pane-attribution">
+
+      <!-- Grounded 6-Step Investigator Workflow Banner -->
+      <div class="investigator-pipeline-card" style="margin: 0 0 16px 0; padding: 12px 16px; background: rgba(6,12,32,0.85); border-color: rgba(56,189,248,0.2);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <span style="font-family:var(--font-display);font-size:0.78rem;font-weight:800;color:#38bdf8;letter-spacing:0.5px">INVESTIGATOR WORKFLOW: CASE INTAKE ➔ TRACE ➔ VASP MATCH ➔ CONFIDENCE ➔ EVIDENCE ➔ IO APPROVAL</span>
+          <span class="sgdb-badge" style="font-size:0.6rem;padding:2px 6px">DEMO DATA IS SYNTHETIC</span>
+        </div>
+        <div class="ipc-steps-grid" style="grid-template-columns: repeat(6, 1fr); gap: 6px;">
+          <div class="ipc-step-item active" style="padding: 6px 8px;"><div class="ipc-step-num" style="font-size:0.6rem;margin-bottom:2px">01. INTAKE</div><div class="ipc-step-title" style="font-size:0.7rem">Wallet Input</div></div>
+          <div class="ipc-step-item active" style="padding: 6px 8px;"><div class="ipc-step-num" style="font-size:0.6rem;margin-bottom:2px">02. TRACE</div><div class="ipc-step-title" style="font-size:0.7rem">Multi-Hop Path</div></div>
+          <div class="ipc-step-item active" style="padding: 6px 8px;"><div class="ipc-step-num" style="font-size:0.6rem;margin-bottom:2px">03. VASP</div><div class="ipc-step-title" style="font-size:0.7rem">Heuristic Match</div></div>
+          <div class="ipc-step-item active" style="padding: 6px 8px;"><div class="ipc-step-num" style="font-size:0.6rem;margin-bottom:2px">04. SCORE</div><div class="ipc-step-title" style="font-size:0.7rem">74% Med-High</div></div>
+          <div class="ipc-step-item active" style="padding: 6px 8px;"><div class="ipc-step-num" style="font-size:0.6rem;margin-bottom:2px">05. EVIDENCE</div><div class="ipc-step-title" style="font-size:0.7rem">Audit Dossier</div></div>
+          <div class="ipc-step-item approval-step" style="padding: 6px 8px;"><div class="ipc-step-num" style="font-size:0.6rem;margin-bottom:2px">06. APPROVAL</div><div class="ipc-step-title" style="font-size:0.7rem">IO Sign-Off Req.</div></div>
+        </div>
+      </div>
+
       <div class="attribution-hud" id="vaspHud">
         <div class="corner-accent corner-tl"></div>
         <div class="corner-accent corner-tr"></div>
@@ -11056,7 +11351,7 @@ main {
           </div>
           <div style="font-family:var(--font-display);font-size:1.45rem;font-weight:800;color:#fff;margin-bottom:8px">VASP Attribution & Intelligence Engine Ready</div>
           <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);max-width:580px;margin:0 auto 22px auto;line-height:1.6">
-            Execute a live on-chain forensic trace or select a preloaded sample case to initialize deterministic VASP attribution, heuristic factor decomposition, and statutory requisition dispatching.
+            Execute a live on-chain forensic trace or select a preloaded sample case to initialize probabilistic VASP attribution, heuristic factor decomposition, and statutory requisition dispatching.
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;max-width:960px;margin:0 auto">
             <button class="btn-cyber btn-primary-glow" onclick="loadDemoCase(0)" style="width:100%;padding:10px 14px;font-size:12px;display:flex;flex-direction:column;align-items:flex-start;gap:4px">
@@ -11082,8 +11377,8 @@ main {
         <button class="btn-cyber btn-primary-glow" onclick="switchTab('copilot');generateAiSummary()" title="AI Copilot Briefing & Intelligence Summary">
           🤖 AI Copilot
         </button>
-        <button class="btn-cyber btn-ghost" onclick="copyCourtDossier(event)" title="Copy Court-Admissible Intelligence Dossier for Case Diary">
-          📋 Copy Dossier
+        <button class="btn-cyber btn-ghost" onclick="copyCourtDossier(event)" title="Copy Intelligence Dossier Draft for Case Diary (LEA Review)">
+          📋 Copy Draft Dossier
         </button>
         <button class="btn-cyber btn-green-glow" onclick="switchTab('notice')" title="Generate Section 91 Statutory Freezing Notice">
           📜 Freeze Notice
@@ -11289,7 +11584,7 @@ main {
                 <span style="color:rgba(255,255,255,0.2)">•</span>
                 <span style="color:#34d399">Unhosted Mule Layering Detection</span>
                 <span style="color:rgba(255,255,255,0.2)">•</span>
-                <span style="color:#fbbf24">Court-Admissible Chronological Trail</span>
+                <span style="color:#fbbf24">Chronological Evidence Audit Trail (Draft for Review)</span>
               </div>
             </div>
           </div>
@@ -11329,7 +11624,7 @@ main {
             <div class="path-stat-meta">
               <div class="psc-title">TAINT PRESERVATION</div>
               <div class="psc-val" id="psTaintRate" style="color:#34d399">100% Direct</div>
-              <div class="psc-sub">Deterministic On-Chain Proof</div>
+              <div class="psc-sub">Probabilistic On-Chain Heuristic Proof</div>
             </div>
           </div>
           <div class="path-stat-card">
@@ -11738,7 +12033,7 @@ main {
                 Section 91 BNSS 2023 / Section 91 CrPC • Mandatory Asset Restraint (Sec 106 BNSS) • MHA / I4C NCRP Standard
               </div>
               <div class="notice-badge-strip">
-                <span class="notice-badge mandate">⚡ Enforceable Legal Mandate</span>
+                <span class="notice-badge mandate">⚖️ Draft Statutory Directive (Subject to IO Approval)</span>
                 <span class="notice-badge sla">⏱️ 24-Hour Statutory Compliance SLA</span>
                 <span class="notice-badge sahyog">🔗 I4C SAHYOG Engine Electronic Gateway</span>
               </div>
@@ -11812,7 +12107,7 @@ main {
 
           <!-- Tactical Preset Buttons -->
           <div class="notice-presets-bar">
-            <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);margin-right:6px">⚡ TACTICAL PRESETS:</span>
+            <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);margin-right:6px">⚡ INVESTIGATIVE PRESETS:</span>
             <button class="notice-preset-pill active" onclick="applyNoticePreset('fir247')">
               <span>🏛️</span> FIR No. 247/2024 (Pune Cyber)
             </button>
@@ -12022,10 +12317,10 @@ main {
             <div class="analytics-hud-meta">
               <div class="analytics-hud-top-row">
                 <span class="analytics-hud-label">TOTAL TRACES</span>
-                <span class="trend-tag cyan" id="tagTotalTraces">↑ +18% MoM</span>
+                <span class="trend-tag cyan" id="tagTotalTraces">Synthetic Demo</span>
               </div>
               <div class="analytics-hud-num" id="statTotalTraces" style="color:#00e5ff">74</div>
-              <div class="analytics-hud-subtext">100% On-Chain Traversed</div>
+              <div class="analytics-hud-subtext">Synthetic Demo Metric</div>
             </div>
           </div>
 
@@ -12037,10 +12332,10 @@ main {
             <div class="analytics-hud-meta">
               <div class="analytics-hud-top-row">
                 <span class="analytics-hud-label">ATTRIBUTED</span>
-                <span class="trend-tag green" id="tagAttributed">92% Match</span>
+                <span class="trend-tag green" id="tagAttributed">74% Med-High</span>
               </div>
               <div class="analytics-hud-num" id="statAttributed" style="color:#34d399">68</div>
-              <div class="analytics-hud-subtext">KYC VASPs Clustered</div>
+              <div class="analytics-hud-subtext">Probabilistic VASP Cluster (Demo)</div>
             </div>
           </div>
 
@@ -12052,10 +12347,10 @@ main {
             <div class="analytics-hud-meta">
               <div class="analytics-hud-top-row">
                 <span class="analytics-hud-label">SEC 91 FREEZES</span>
-                <span class="trend-tag gold" id="tagSec91">Court Ready</span>
+                <span class="trend-tag gold" id="tagSec91">Draft Format</span>
               </div>
               <div class="analytics-hud-num" id="statSec91" style="color:#fbbf24">52</div>
-              <div class="analytics-hud-subtext">BNSS 2023 Enforced</div>
+              <div class="analytics-hud-subtext">Sec 91 Drafts Prepared (Synthetic)</div>
             </div>
           </div>
 
@@ -12067,10 +12362,10 @@ main {
             <div class="analytics-hud-meta">
               <div class="analytics-hud-top-row">
                 <span class="analytics-hud-label">MIXERS / BRIDGES</span>
-                <span class="trend-tag purple">Neutralized</span>
+                <span class="trend-tag purple">Flagged / Isolated</span>
               </div>
               <div class="analytics-hud-num" id="statBridges" style="color:#c084fc">26</div>
-              <div class="analytics-hud-subtext">Tornado Cash Decoupled</div>
+              <div class="analytics-hud-subtext">Mixer Pools Isolated (Alerted)</div>
             </div>
           </div>
 
@@ -12082,10 +12377,10 @@ main {
             <div class="analytics-hud-meta">
               <div class="analytics-hud-top-row">
                 <span class="analytics-hud-label">SEIZURE VALUE</span>
-                <span class="trend-tag cyan">Sec 106</span>
+                <span class="trend-tag cyan">Synthetic Demo</span>
               </div>
               <div class="analytics-hud-num" id="statValuation" style="color:#38bdf8;font-size:1.45rem">₹ 14.82 Cr</div>
-              <div class="analytics-hud-subtext">~$1.78M Frozen Under BNSS</div>
+              <div class="analytics-hud-subtext">Synthetic Demo Metric (Case Total)</div>
             </div>
           </div>
 
@@ -12097,10 +12392,10 @@ main {
             <div class="analytics-hud-meta">
               <div class="analytics-hud-top-row">
                 <span class="analytics-hud-label">AVG NODAL SLA</span>
-                <span class="trend-tag green">15x Speed</span>
+                <span class="trend-tag green">Target Metric</span>
               </div>
               <div class="analytics-hud-num" id="statSla" style="color:#10b981">3.4 hrs</div>
-              <div class="analytics-hud-subtext">vs 72hr Manual Standard</div>
+              <div class="analytics-hud-subtext">Target Turnaround vs 72h Manual Lag</div>
             </div>
           </div>
         </div>
@@ -12274,7 +12569,7 @@ main {
 
       </div>
     </div>
-    <!-- PANE 2: AI INVESTIGATOR COPILOT (GEMINI + GROQ DUAL-ENGINE FORENSIC NERVE CENTER) -->
+    <!-- PANE 2: PROTOTYPE AI COPILOT (LLM-ASSISTED REASONING & FORENSIC NERVE CENTER) -->
     <div class="pane" id="pane-copilot">
       <div class="hud-panel" style="margin-bottom:18px;position:relative">
         <div class="corner-accent corner-tl"></div>
@@ -12381,7 +12676,7 @@ main {
               <div style="font-family:var(--font-display);font-size:1.25rem;font-weight:900;color:#fff;display:flex;align-items:center;gap:10px;letter-spacing:0.02em">
                 AI Investigator // Autonomous Forensic Core
                 <span id="aiActiveBadge" style="font-family:var(--font-mono);font-size:0.68rem;padding:3px 10px;border-radius:999px;background:rgba(52,211,153,0.12);color:var(--accent-green);border:1px solid rgba(52,211,153,0.3);box-shadow:0 0 10px rgba(52,211,153,0.25)">
-                  <span class="status-dot status-dot-green pulse" style="margin-right:4px"></span> Gemini 3.6 Flash [Primary Online]
+                  <span class="status-dot status-dot-green pulse" style="margin-right:4px"></span> Prototype AI Copilot (LLM-Assisted Reasoning) [Online]
                 </span>
               </div>
               <div style="font-size:0.78rem;color:#94a3b8;margin-top:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">
@@ -12432,12 +12727,12 @@ main {
               <div class="ai-tc-title">FAILOVER HARDWARE ACCEL</div>
               <div class="ai-tc-val" style="color:#c084fc">Groq Llama-3.3-70B</div>
               <div class="ai-tc-status" style="color:#38bdf8">
-                <span class="status-dot status-dot-cyan"></span> ARMED (Sub-300ms Failover)
+                <span class="status-dot status-dot-cyan"></span> ACTIVE (Autonomous Failover)
               </div>
             </div>
           </div>
 
-          <!-- Guardrail: Deterministic Validation -->
+          <!-- Guardrail: Probabilistic Validation -->
           <div class="ai-telemetry-card">
             <div class="ai-tc-icon" style="background:rgba(52,211,153,0.12);border-color:rgba(52,211,153,0.4)">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
@@ -12527,10 +12822,10 @@ main {
         <!-- 4. Tactical Investigation Prompt Command Grid (5 Handcrafted 3D Isometric Cards) -->
         <div style="margin-bottom:12px;display:flex;justify-content:space-between;align-items:center">
           <span style="font-family:var(--font-mono);font-size:0.72rem;font-weight:700;color:#94a3b8;letter-spacing:0.08em;text-transform:uppercase">
-            ⚡ TACTICAL FORENSIC INQUIRY MATRIX (CLICK TO EXECUTE)
+            ⚡ FORENSIC INQUIRY MATRIX (CLICK TO EXECUTE)
           </span>
           <span style="font-family:var(--font-mono);font-size:0.68rem;color:#c084fc">
-            Gemini 3.6 Flash & Groq LPU (Qwen 3.8-27B)
+            Prototype AI Copilot (LLM-Assisted Multi-Provider Reasoning)
           </span>
         </div>
 
@@ -12628,7 +12923,7 @@ main {
             <div style="text-align:center;padding:24px 10px;color:#64748b;font-family:var(--font-mono);font-size:0.75rem;line-height:1.6">
               <div style="font-size:1.4rem;margin-bottom:6px">🛰️</div>
               <div>TraceX AI Investigator ready for on-chain interrogation.</div>
-              <div>Ask any inquiry below or trigger a tactical investigation chip above.</div>
+              <div>Ask any inquiry below or select an investigative query above.</div>
             </div>
           </div>
 
@@ -12638,7 +12933,7 @@ main {
               <span>❯_</span>
               <span>IO-QUERY:</span>
             </div>
-            <input type="text" id="copilotInput" class="copilot-input-box" placeholder="Ask TraceX AI Investigator about this wallet, transaction hops, FATF red flags, or freeze authority..." onkeydown="if(event.key==='Enter')sendCopilotMsg()" />
+            <input type="text" id="copilotInput" class="copilot-input-box" placeholder="Ask Prototype AI Copilot (LLM-Assisted Reasoning) about this wallet, transaction hops, FATF red flags, or draft requisitions..." onkeydown="if(event.key==='Enter')sendCopilotMsg()" />
             <button class="btn-cyber btn-primary-glow" id="copilotSendBtn" onclick="sendCopilotMsg()" style="width:auto;padding:8px 22px;font-size:0.78rem;font-weight:800;letter-spacing:0.06em">
               EXECUTE ⚡
             </button>
@@ -12739,7 +13034,7 @@ main {
           title: "Forensic On-Chain Analysis (" + detectedChain + ")",
           crime_category: "Cyber Financial Crime / Layering Trace",
           mode: "LIVE_ON_CHAIN",
-          disclaimer: "STATUTORY FORENSIC RECONSTRUCTION UNDER BNSS 2023",
+          disclaimer: "RESEARCH PROTOTYPE EVALUATION — DRAFT FOR AUTHORIZED LEA REVIEW",
           description: "Autonomous multi-hop forensic trace traversing intermediary addresses towards identified custodial off-ramp endpoint.",
           suspect_address: idxOrAddr,
           chain: detectedChain,
@@ -12751,10 +13046,10 @@ main {
     }
 
     const vaspProfiles = {
-      'TRON': { name: 'CoinDCX (Neblio Technologies Pvt Ltd)', email: 'compliance-nodal@coindcx.com', addr: 'TYDzsYUEpvnYmQk4zGP9sWWcTEd2MiAtW6', conf: 92, country: 'India' },
-      'BTC': { name: 'WazirX (Zanmai Labs Pvt Ltd)', email: 'nodal@wazirx.com', addr: '3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy', conf: 88, country: 'India' },
-      'ETH': { name: 'Binance Global (Zanmai / Binance)', email: 'compliance@binance.com', addr: '0x3f5CE5FBFe3E9af3971dD833D26BA9b5C936f0bE', conf: 95, country: 'Global / Seychelles' },
-      'SOL': { name: 'Mudrex (FIU-IND Registered)', email: 'compliance@mudrex.com', addr: '9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM', conf: 85, country: 'India' }
+      'TRON': { name: 'CoinDCX (Neblio Technologies Pvt Ltd)', email: 'compliance-nodal@coindcx.com', addr: 'TYDzsYUEpvnYmQk4zGP9sWWcTEd2MiAtW6', conf: 74, country: 'India' },
+      'BTC': { name: 'WazirX (Zanmai Labs Pvt Ltd)', email: 'nodal@wazirx.com', addr: '3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy', conf: 76, country: 'India' },
+      'ETH': { name: 'Binance Global (Zanmai / Binance)', email: 'compliance@binance.com', addr: '0x3f5CE5FBFe3E9af3971dD833D26BA9b5C936f0bE', conf: 78, country: 'Global / Seychelles' },
+      'SOL': { name: 'Mudrex (FIU-IND Registered)', email: 'compliance@mudrex.com', addr: '9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM', conf: 72, country: 'India' }
     };
 
     const prof = vaspProfiles[c.chain] || vaspProfiles['ETH'];
@@ -13664,7 +13959,7 @@ FORENSIC SHA-256   : ${prov.evidence_hash || 'SHA256-AUTHENTICATED'}
    - VASP Jurisdiction      : ${v.country || 'Global'} (${v.is_indian ? 'FIU-IND Reporting Entity' : 'Cross-Border Entity - MLAT Required'})
    - Nodal Compliance Desk  : ${v.nodal_email || 'compliance@exchange.io'}
 
-2. DETERMINISTIC HEURISTIC ATTRIBUTION BREAKDOWN:
+2. PROBABILISTIC HEURISTIC ATTRIBUTION BREAKDOWN:
    - Composite Confidence   : ${v.confidence || 85}% (${v.confidence_grade || 'HIGH CONFIDENCE'})
    - Algorithm Attribution  : Directed NetworkX Graph + Curated Exchange Cluster DB
    - Multi-Hop Traversal    : ${ps.total_hops || 3} intermediate transaction hops traced
@@ -13677,7 +13972,7 @@ FORENSIC SHA-256   : ${prov.evidence_hash || 'SHA256-AUTHENTICATED'}
 ================================================================================`;
 
   navigator.clipboard.writeText(dossier).then(() => {
-    showToast('✓ Court-Admissible Intelligence Dossier copied to clipboard!', 'success');
+    showToast('✓ Intelligence Dossier Draft copied to clipboard (For LEA Review)!', 'success');
   }).catch(() => {
     const ta = document.createElement('textarea');
     ta.value = dossier;
@@ -13685,7 +13980,7 @@ FORENSIC SHA-256   : ${prov.evidence_hash || 'SHA256-AUTHENTICATED'}
     ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    showToast('✓ Court-Admissible Intelligence Dossier copied to clipboard!', 'success');
+    showToast('✓ Intelligence Dossier Draft copied to clipboard (For LEA Review)!', 'success');
   });
 }
 
@@ -13915,7 +14210,7 @@ YOU ARE DIRECTED TO IMMEDIATELY:
     <!-- Forensic Cypher Presets -->
     <div style="margin-bottom:12px">
       <div style="font-family:var(--font-mono);font-size:0.7rem;font-weight:800;color:#94a3b8;margin-bottom:6px;letter-spacing:0.5px">
-        ⚡ TACTICAL CYPHER PRESETS (CLICK TO EXECUTE):
+        ⚡ INVESTIGATIVE CYPHER PRESETS (CLICK TO EXECUTE):
       </div>
       <div style="display:flex;gap:6px;flex-wrap:wrap">
         <button class="node-inspect-btn" onclick="setCypherQuery('MATCH (v:VASP) RETURN v.name AS Exchange, v.country AS Jurisdiction, v.vasp_type AS Type')" style="font-size:10.5px">
@@ -14852,7 +15147,7 @@ function updateModeUI() {
     if (text) text.textContent = 'MODE: DEMO BENCHMARK';
     if (banner) {
       banner.className = 'mode-banner-demo';
-      banner.innerHTML = '<span class="status-dot status-dot-amber" style="margin-right:6px"></span> <b>Synthetic demo benchmark active:</b> Standard evaluation benchmark cases. Real police/KYC records are never used.';
+      banner.innerHTML = '<span class="status-dot status-dot-amber" style="margin-right:6px"></span> <b>SIH26182 Research Prototype (Demo Mode):</b> Preloaded evaluation benchmarks. Demo data is synthetic. Final legal action subject to authorized LEA approval.';
     }
   }
 }
@@ -15057,9 +15352,9 @@ function getAnalyticsData() {
       "Investment Fraud": 4
     },
     vasp_sla_matrix: [
-      { name: "Binance (India Desk)", reg: "FIU-IND Registered", sla: "3.2 hrs", cases: 28, status: "TIER-1 COMPLIANT", color: "#10b981" },
+      { name: "Binance (India Desk)", reg: "FIU-IND Registered", sla: "3.2 hrs", cases: 28, status: "FIU-IND COMPLIANT", color: "#10b981" },
       { name: "CoinDCX (Nodal LEA)", reg: "FIU-IND Registered", sla: "1.6 hrs", cases: 8, status: "FASTEST LOCAL SLA", color: "#10b981" },
-      { name: "WazirX (Legal Compliance)", reg: "FIU-IND Registered", sla: "2.4 hrs", cases: 6, status: "TIER-1 COMPLIANT", color: "#10b981" },
+      { name: "WazirX (Legal Compliance)", reg: "FIU-IND Registered", sla: "2.4 hrs", cases: 6, status: "FIU-IND COMPLIANT", color: "#10b981" },
       { name: "KuCoin (Seychelles)", reg: "Mutual Assistance", sla: "8.5 hrs", cases: 11, status: "MLAT REQUIRED", color: "#fbbf24" },
       { name: "HTX / Huobi (Offshore)", reg: "International", sla: "14.2 hrs", cases: 16, status: "DELAYED REQUISITION", color: "#ef4444" }
     ],
@@ -15198,7 +15493,7 @@ function exportLeaDossier() {
       attributed_wallets: an.attributed_wallets,
       attribution_precision: "91.8%",
       sec91_requisitions: an.sec91_count,
-      bridges_neutralized: an.bridges_detected,
+      bridges_flagged: an.bridges_detected,
       seizure_asset_valuation: an.asset_valuation || "₹ 14.82 Cr",
       avg_nodal_sla: an.avg_sla || "3.4 hrs"
     },
@@ -15414,9 +15709,9 @@ function renderVaspSlaTable(an) {
   if (!tbody) return;
 
   const data = an.vasp_sla_matrix || [
-    { name: "Binance (India Desk)", reg: "FIU-IND Registered", sla: "3.2 hrs", cases: 28, status: "TIER-1 (FIU-IND)", color: "#10b981" },
+    { name: "Binance (India Desk)", reg: "FIU-IND Registered", sla: "3.2 hrs", cases: 28, status: "REGISTERED (FIU-IND)", color: "#10b981" },
     { name: "CoinDCX (Nodal LEA)", reg: "FIU-IND Registered", sla: "1.6 hrs", cases: 8, status: "FASTEST (1.6h)", color: "#10b981" },
-    { name: "WazirX (Legal Desk)", reg: "FIU-IND Registered", sla: "2.4 hrs", cases: 6, status: "TIER-1 (FIU-IND)", color: "#10b981" },
+    { name: "WazirX (Legal Desk)", reg: "FIU-IND Registered", sla: "2.4 hrs", cases: 6, status: "REGISTERED (FIU-IND)", color: "#10b981" },
     { name: "KuCoin (Seychelles)", reg: "Mutual Assistance", sla: "8.5 hrs", cases: 11, status: "MLAT REQ (8.5h)", color: "#fbbf24" },
     { name: "HTX / Huobi (Offshore)", reg: "International", sla: "14.2 hrs", cases: 16, status: "DELAYED (14.2h)", color: "#ef4444" }
   ];
@@ -16163,7 +16458,7 @@ function renderPathPane(data) {
           <span style="font-size:1.2rem">⚡</span>
           <div>
             <div style="font-family:var(--font-display);font-size:0.85rem;font-weight:800;color:#fbbf24">
-              ARMED SHOWCASE EVIDENCE TRAIL: CASE 1 (FIR 247/24 - TELEGRAM TASK SCAM)
+              DEMO EVIDENCE TRAIL: CASE 1 (FIR 247/24 - TELEGRAM TASK SCAM)
             </div>
             <div style="font-family:var(--font-mono);font-size:0.68rem;color:#94a3b8">
               Displaying standard certified multi-hop route. Initiate any live trace to dynamically plot suspect conduit.
@@ -17097,7 +17392,7 @@ function renderResults(data) {
         <div class="hc-value" style="font-size:13px;color:#e2e8f0;line-height:1.5">
           ${v.confidence_basis || 'Cluster heuristic & multi-hop flow analysis'}
         </div>
-        <div class="hc-sub">Deterministic On-Chain Proof Verification</div>
+        <div class="hc-sub">Probabilistic On-Chain Proof Verification</div>
       </div>
 
       <!-- 6. Statutory Freeze Authority -->
@@ -18478,7 +18773,7 @@ Sir / Madam,
 
    • TARGET SUSPECT ADDRESS : ${addr}
    • BLOCKCHAIN / PROTOCOL  : ${chain}
-   • ATTRIBUTION CONFIDENCE : ${conf}% DETERMINISTIC MATCH
+   • ATTRIBUTION CONFIDENCE : ${conf}% PROBABILISTIC MATCH (CONFIDENCE-BASED EVIDENCE)
    • AML RISK CLASSIFICATION: ${risk} (${riskScore}/100)
    • PRIMARY ENTRY TX HASH  : ${txid}
 
@@ -18599,7 +18894,7 @@ function printNotice() {
   }, 450);
 }
 
-// ─── AI INVESTIGATOR COPILOT (GEMINI + GROQ DUAL-ENGINE) ────────────────────
+// ─── PROTOTYPE AI COPILOT (LLM-ASSISTED REASONING) ───────────────────────────
 
 function escapeHtml(str) {
   if (!str) return '';
@@ -18874,7 +19169,7 @@ async function sendCopilotMsg() {
     <div class="chat-ai-meta">
       <div style="display:flex;align-items:center;gap:6px">
         <span class="status-dot status-dot-cyan pulse"></span>
-        <span>TRACEX QUANTUM REASONING MATRIX</span>
+        <span>TRACEX AI REASONING PIPELINE</span>
       </div>
       <span style="color:#94a3b8;font-size:0.6rem">REASONING ENGINE ACTIVE</span>
     </div>
@@ -18888,7 +19183,7 @@ async function sendCopilotMsg() {
     '🔍 Correlating multi-hop fund flows with VASP exchange heuristics...',
     '🛡️ Cross-referencing FATF AML typologies & OFAC SDN records...',
     '🧠 Querying Google Gemini 2.0 / Groq high-speed reasoning engines...',
-    '⚖️ Structuring court-admissible Section 91 BNSS evidence...'
+    '⚖️ Structuring draft Section 91 BNSS evidence for IO review...'
   ];
   let sIdx = 0;
   const stepEl = aiBubble.querySelector('.ai-step-dynamic');
@@ -19368,7 +19663,7 @@ function triggerMenuAction(action) {
     showToast('⚖️ Switched to Section 91 Statutory Notice Synthesizer', 'info');
   } else if (action === 'copilot') {
     switchTab('copilot');
-    showToast('🤖 Switched to AI Investigator Copilot', 'info');
+    showToast('🤖 Switched to Prototype AI Copilot (LLM-Assisted Reasoning)', 'info');
   } else if (action === 'pdf') {
     if (typeof currentTrace !== 'undefined' && currentTrace) {
       printForensicDossier(currentTrace);
@@ -19405,9 +19700,9 @@ function toggleForensicAudio() {
   updateAudioUiState();
   if (window.forensicAudioEnabled) {
     playCyberSound('chirp');
-    showToast('🔊 Tactical Forensic Audio: ENABLED', 'success');
+    showToast('🔊 Auditory Feedback SFX: ENABLED', 'success');
   } else {
-    showToast('🔇 Tactical Forensic Audio: MUTED', 'info');
+    showToast('🔇 Auditory Feedback SFX: MUTED', 'info');
   }
 }
 
@@ -19425,7 +19720,7 @@ function updateAudioUiState() {
       hubIcon.textContent = '🔇';
       hubBadge.textContent = 'MUTED';
       hubBadge.className = 'tool-card-tag tag-gray';
-      if (hubDesc) hubDesc.textContent = 'Audio muted (click to enable tactical feedback)';
+      if (hubDesc) hubDesc.textContent = 'Audio muted (click to enable audio feedback)';
     }
   }
   const icon = document.getElementById('audioMenuIcon');
@@ -19441,7 +19736,7 @@ function updateAudioUiState() {
       icon.textContent = '🔇';
       badge.textContent = 'MUTED';
       badge.className = 'item-tag tag-gray';
-      if (desc) desc.textContent = 'Audio muted (click to enable tactical feedback)';
+      if (desc) desc.textContent = 'Audio muted (click to enable audio feedback)';
     }
   }
 }
@@ -19465,7 +19760,7 @@ document.addEventListener('keydown', function(e) {
 
 
 
-// ─── MASTERCLASS TACTICAL FORENSIC TOOLS HUB CONTROLLER ─────────────────────
+// ─── MASTERCLASS FORENSIC TOOLS HUB CONTROLLER ─────────────────────
 function openToolsHub() {
   const overlay = document.getElementById('toolsHubOverlay');
   const btn = document.getElementById('btnToolsHub');
@@ -19615,7 +19910,7 @@ function runToolAction(action) {
       const pane = document.getElementById('pane-copilot');
       if (pane) pane.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 100);
-    showToast('🤖 Switched to AI Investigator Copilot', 'info');
+    showToast('🤖 Switched to Prototype AI Copilot (LLM-Assisted Reasoning)', 'info');
   } else if (action === 'pdf') {
     if (typeof exportDossierCasePdf === 'function') {
       exportDossierCasePdf(null, 0);
